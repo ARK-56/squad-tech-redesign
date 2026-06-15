@@ -136,7 +136,7 @@ export default function Hero() {
 
               {/* Tag overlays */}
               <div className="absolute bottom-4 left-4 flex gap-2">
-                {['Free preview', 'Our philosophy', 'Why we fight'].map((tag) => (
+                {['Free preview', 'Our philosophy', 'How we Work'].map((tag) => (
                   <span
                     key={tag}
                     className="px-3 py-1.5 rounded-full text-xs font-semibold text-white/80 border border-white/10"
