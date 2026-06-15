@@ -131,7 +131,7 @@ export default function Hero() {
                 autoPlay muted loop playsInline preload="metadata"
                 className="w-full h-full object-cover opacity-90"
               >
-                <source src="https://squadtechsol.com/videos/Promotional-Intro-Squad-Tech-Solution.mp4" type="video/mp4" />
+                <source src="/videos/Promotional-Intro-Squad-Tech-Solution.mp4" type="video/mp4" />
               </video>
 
               {/* Tag overlays */}

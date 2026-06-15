@@ -2,15 +2,15 @@ import useScrollReveal from '../hooks/useScrollReveal'
 
 const videos = [
   {
-    src: 'https://squadtechsol.com/videos/Social Media Marketing.mp4',
+    src: '/videos/Social Media Marketing.mp4',
     label: 'Social Media Marketing',
   },
   {
-    src: 'https://squadtechsol.com/videos/video-presence-2.mp4',
+    src: '/videos/video-presence-2.mp4',
     label: 'Brand & Web Presence',
   },
   {
-    src: 'https://squadtechsol.com/videos/video-presence-3.mp4',
+    src: '/videos/video-presence-3.mp4',
     label: 'Growth Engineering',
   },
 ]
