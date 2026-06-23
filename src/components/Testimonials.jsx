@@ -98,6 +98,29 @@ export default function Testimonials() {
             Our clients value speed and certainty: bold conversion pipelines, striking creative assets, and
             software optimized to close inbound deals.
           </p>
+          <a
+            href="https://uk.trustpilot.com/review/squadtechsol.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-3 px-4 py-3 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-200 group"
+            style={{ background: 'rgba(255,255,255,0.04)' }}
+          >
+            {/* Trustpilot star logo */}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="4" fill="#00B67A"/>
+              <path d="M12 16.5l-4.5 2.7 1.2-5-4-3.5 5.2-.4L12 5.5l2.1 4.8 5.2.4-4 3.5 1.2 5z" fill="white"/>
+            </svg>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-1 mb-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#00B67A" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                  </svg>
+                ))}
+              </div>
+              <span className="text-white/40 text-xs leading-none">Rated <span className="text-white/70 font-semibold">Excellent</span> on Trustpilot</span>
+            </div>
+          </a>
         </div>
 
         {/* Main testimonial */}
