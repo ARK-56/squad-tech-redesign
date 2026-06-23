@@ -45,10 +45,23 @@ const ProjectCard = memo(function ProjectCard({ project, index }) {
   return (
     <article
       ref={ref}
-      className={`group rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-700 ${
+      className={`group rounded-2xl overflow-hidden border transition-all duration-700 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
-      style={{ transitionDelay: `${index * 70}ms`, background: 'rgba(255,255,255,0.04)' }}
+      style={{
+        transitionDelay: `${index * 70}ms`,
+        background: 'rgba(255,255,255,0.04)',
+        borderColor: `rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.25)`,
+        boxShadow: `0 0 18px rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.12)`,
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.boxShadow = `0 0 32px rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.28)`
+        e.currentTarget.style.borderColor = `rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.5)`
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.boxShadow = `0 0 18px rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.12)`
+        e.currentTarget.style.borderColor = `rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.25)`
+      }}
     >
       {/* Image */}
       <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>

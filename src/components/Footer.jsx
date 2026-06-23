@@ -134,8 +134,8 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/20 transition-all duration-200"
-                  style={{ background: 'rgba(255,255,255,0.04)' }}
+                  className="w-10 h-10 rounded-xl border border-orange-400/30 flex items-center justify-center text-white/40 hover:text-white transition-all duration-200"
+                  style={{ background: 'rgba(255,255,255,0.04)', boxShadow: '0 0 14px rgba(245,142,30,0.4)' }}
                 >
                   {icon}
                 </a>
