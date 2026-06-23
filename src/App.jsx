@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import WhatsAppWidget from './components/WhatsAppWidget'
 
 const Home = lazy(() => import('./pages/Home'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
@@ -52,6 +53,7 @@ export default function App() {
                 </Routes>
               </main>
               <Footer />
+              <WhatsAppWidget />
             </div>
           } />
         </Routes>
