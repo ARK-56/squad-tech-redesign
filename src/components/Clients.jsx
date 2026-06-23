@@ -46,10 +46,6 @@ export default function Clients() {
       </div>
 
       <div className="relative">
-        {/* Edge fade masks */}
-        <div className="absolute left-0 top-0 bottom-0 w-28 pointer-events-none z-10" style={{ background: 'linear-gradient(to right, #060606, transparent)' }} />
-        <div className="absolute right-0 top-0 bottom-0 w-28 pointer-events-none z-10" style={{ background: 'linear-gradient(to left, #060606, transparent)' }} />
-
         {/* Scrolling track — pause on hover */}
         <div
           className="flex items-center animate-marquee hover:[animation-play-state:paused]"
