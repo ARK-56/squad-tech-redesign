@@ -1,7 +1,22 @@
 import { FiArrowRight } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
-const quickLinks = ['Services', 'Blogs', 'Work', 'Contact', 'Get 1:1 Focus Call']
-const serviceLinks = ['Social Media Marketing', 'SEO & PPC', 'Brand Identity', 'Media Production', 'Web Development', 'Dedicated Remote Staff']
+const quickLinks = [
+  { label: 'Services', href: '/services' },
+  { label: 'Blogs', href: '/blog' },
+  { label: 'Work', href: '/portfolio' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Get 1:1 Focus Call', href: 'https://calendly.com/squadtechsolution/inquiry' },
+]
+
+const serviceLinks = [
+  { label: 'Social Media Marketing', slug: 'social-media-marketing' },
+  { label: 'SEO & PPC', slug: 'seo-ppc' },
+  { label: 'Brand Identity', slug: 'brand-identity' },
+  { label: 'Media Production', slug: 'media-production' },
+  { label: 'Web Development', slug: 'web-development' },
+  { label: 'Dedicated Remote Staff', slug: 'dedicated-remote-staff' },
+]
 
 const socials = [
   { label: 'Instagram', href: 'https://www.instagram.com/squadtechsolution', icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.9" stroke="currentColor" className="w-4 h-4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none"/></svg> },
@@ -88,9 +103,13 @@ export default function Footer() {
           <div>
             <p className="text-white text-xs font-semibold uppercase tracking-widest mb-5">Quick Links</p>
             <div className="space-y-3">
-              {quickLinks.map((item) => (
-                <a key={item} href="#" className="block text-white/50 text-sm hover:text-white transition-colors duration-200">{item}</a>
-              ))}
+              {quickLinks.map((item) =>
+                item.href.startsWith('http') ? (
+                  <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className="block text-white/50 text-sm hover:text-white transition-colors duration-200">{item.label}</a>
+                ) : (
+                  <Link key={item.label} to={item.href} className="block text-white/50 text-sm hover:text-white transition-colors duration-200">{item.label}</Link>
+                )
+              )}
             </div>
           </div>
 
@@ -99,7 +118,7 @@ export default function Footer() {
             <p className="text-white text-xs font-semibold uppercase tracking-widest mb-5">Services</p>
             <div className="space-y-3">
               {serviceLinks.map((item) => (
-                <a key={item} href="#services" className="block text-white/50 text-sm hover:text-white transition-colors duration-200">{item}</a>
+                <Link key={item.slug} to={`/services/${item.slug}`} className="block text-white/50 text-sm hover:text-white transition-colors duration-200">{item.label}</Link>
               ))}
             </div>
           </div>

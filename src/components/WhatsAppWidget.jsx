@@ -1,7 +1,7 @@
 export default function WhatsAppWidget() {
   return (
     <a
-      href="https://api.whatsapp.com/send/?phone=817074270468&text&type=phone_number&app_absent=0"
+      href="https://api.whatsapp.com/send/?phone=14029010977&text&type=phone_number&app_absent=0"
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
