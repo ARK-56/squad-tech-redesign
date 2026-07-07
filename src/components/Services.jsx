@@ -61,10 +61,12 @@ const ServiceCard = memo(function ServiceCard({ service, index }) {
       onMouseEnter={e => {
         e.currentTarget.style.boxShadow = `0 0 32px rgba(${service.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.28)`
         e.currentTarget.style.borderColor = `rgba(${service.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.5)`
+        e.currentTarget.style.transform = 'translateY(-6px) scale(1.01)'
       }}
       onMouseLeave={e => {
         e.currentTarget.style.boxShadow = `0 0 18px rgba(${service.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.12)`
         e.currentTarget.style.borderColor = `rgba(${service.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.25)`
+        e.currentTarget.style.transform = 'translateY(0) scale(1)'
       }}
     >
       {/* Hover top glow */}

@@ -46,7 +46,7 @@ const FeaturedPost = memo(function FeaturedPost({ post }) {
 
   return (
     <Link
-      to={`/blog/${post.slug}`}
+      to={`/blogs/${post.slug}`}
       ref={ref}
       className={`group grid lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-700 block ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -99,7 +99,7 @@ const BlogCard = memo(function BlogCard({ post, index }) {
 
   return (
     <Link
-      to={`/blog/${post.slug}`}
+      to={`/blogs/${post.slug}`}
       ref={ref}
       className={`group card overflow-hidden block cursor-pointer transition-all duration-700 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

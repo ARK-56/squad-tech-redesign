@@ -47,8 +47,8 @@ export default function App() {
                   <Route path="/services/:slug" element={<ServiceDetail />} />
                   <Route path="/portfolio" element={<PortfolioPage />} />
                   <Route path="/about" element={<AboutPage />} />
-                  <Route path="/blog" element={<BlogPage />} />
-                  <Route path="/blog/:slug" element={<BlogPost />} />
+                  <Route path="/blogs" element={<BlogPage />} />
+                  <Route path="/blogs/:slug" element={<BlogPost />} />
                   <Route path="/contact" element={<ContactPage />} />
                 </Routes>
               </main>

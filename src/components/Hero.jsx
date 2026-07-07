@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FiArrowRight, FiCalendar } from 'react-icons/fi'
 import { HiCheckCircle } from 'react-icons/hi2'
 
@@ -194,20 +194,58 @@ export default function Hero() {
         {/* Stats bar */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {stats.map((stat, i) => (
-            <div
-              key={i}
-              className="card text-center py-5 px-4 hover:border-white/20 transition-all duration-300"
-            >
-              <div
-                className="text-2xl md:text-3xl font-bold mb-1 brand-text"
-              >
-                {stat.value}
-              </div>
-              <div className="text-xs text-white/50 font-medium uppercase tracking-wider">{stat.label}</div>
-            </div>
+            <StatCard key={i} stat={stat} />
           ))}
         </div>
       </div>
     </section>
+  )
+}
+
+function parsestat(value) {
+  const prefix = value.startsWith('+') ? '+' : ''
+  const suffix = value.replace(/[0-9.]/g, '').replace('+', '')
+  const num = parseFloat(value.replace(/[^0-9.]/g, ''))
+  return { prefix, suffix, num }
+}
+
+function StatCard({ stat }) {
+  const ref = useRef(null)
+  const [display, setDisplay] = useState('0')
+  const [started, setStarted] = useState(false)
+  const { prefix, suffix, num } = parsestat(stat.value)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started) {
+        setStarted(true)
+        observer.disconnect()
+        const duration = 1400
+        const steps = 40
+        const interval = duration / steps
+        let step = 0
+        const timer = setInterval(() => {
+          step++
+          const progress = step / steps
+          const eased = 1 - Math.pow(1 - progress, 3)
+          const current = Math.round(eased * num)
+          setDisplay(String(current))
+          if (step >= steps) clearInterval(timer)
+        }, interval)
+      }
+    }, { threshold: 0.4 })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [num, started])
+
+  return (
+    <div ref={ref} className="card text-center py-5 px-4 hover:border-white/20 transition-all duration-300">
+      <div className="text-2xl md:text-3xl font-bold mb-1 brand-text">
+        {prefix}{display}{suffix}
+      </div>
+      <div className="text-xs text-white/50 font-medium uppercase tracking-wider">{stat.label}</div>
+    </div>
   )
 }

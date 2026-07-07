@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const quickLinks = [
   { label: 'Services', href: '/services' },
-  { label: 'Blogs', href: '/blog' },
+  { label: 'Blogs', href: '/blogs' },
   { label: 'Work', href: '/portfolio' },
   { label: 'Contact', href: '/contact' },
   { label: 'Get 1:1 Focus Call', href: 'https://calendly.com/squadtechsolution/inquiry' },
@@ -134,8 +134,10 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="w-10 h-10 rounded-xl border border-orange-400/30 flex items-center justify-center text-white/40 hover:text-white transition-all duration-200"
-                  style={{ background: 'rgba(255,255,255,0.04)', boxShadow: '0 0 14px rgba(245,142,30,0.4)' }}
+                  className="w-10 h-10 rounded-xl border border-orange-400/30 flex items-center justify-center transition-all duration-200"
+                  style={{ background: 'rgba(245,142,30,0.1)', color: '#f58e1e', boxShadow: '0 0 14px rgba(245,142,30,0.4)' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'rgba(245,142,30,0.2)'; e.currentTarget.style.color = '#fff' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(245,142,30,0.1)'; e.currentTarget.style.color = '#f58e1e' }}
                 >
                   {icon}
                 </a>

@@ -8,7 +8,7 @@ const clients = [
   { name: 'MM', logo: '/images/clients/MM.png' },
   { name: 'Nexcare', logo: '/images/clients/Nexcare.png' },
   { name: 'Premiere', logo: '/images/clients/Premiere.png' },
-  { name: 'Reshape', logo: '/images/clients/Reshape.png' },
+  { name: 'Reshape', logo: '/images/clients/Reshape.png', large: true },
   { name: 'S8', logo: '/images/clients/S8.png' },
   { name: 'Shinkyowa', logo: '/images/clients/Shinkyowa.png' },
   { name: 'Smartbilling', logo: '/images/clients/Smartbilling.png' },
@@ -25,7 +25,7 @@ function ClientLogo({ client }) {
       <img
         src={client.logo}
         alt={client.name}
-        className="h-14 w-auto object-contain max-w-[180px] transition-all duration-300"
+        className={`${client.large ? 'h-20' : 'h-14'} w-auto object-contain max-w-[200px] transition-all duration-300`}
         loading="lazy"
         decoding="async"
         style={{ filter: 'brightness(0) invert(1) opacity(0.5)' }}

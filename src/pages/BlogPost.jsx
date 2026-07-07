@@ -7,7 +7,7 @@ export default function BlogPost() {
   const { slug } = useParams()
   const post = posts.find((p) => p.slug === slug)
 
-  if (!post) return <Navigate to="/blog" replace />
+  if (!post) return <Navigate to="/blogs" replace />
 
   const related = posts.filter((p) => p.slug !== slug).slice(0, 2)
 
@@ -24,7 +24,7 @@ export default function BlogPost() {
           <nav className="flex items-center gap-1.5 text-xs text-white/30 mb-8 font-medium">
             <Link to="/" className="hover:text-white/60 transition-colors">Home</Link>
             <span className="text-white/20">/</span>
-            <Link to="/blog" className="hover:text-white/60 transition-colors">Blog</Link>
+            <Link to="/blogs" className="hover:text-white/60 transition-colors">Blog</Link>
             <span className="text-white/20">/</span>
             <span className="text-white/60 truncate max-w-[200px]">{post.title}</span>
           </nav>
@@ -125,7 +125,7 @@ export default function BlogPost() {
           <div className="w-full max-w-[78rem] mx-auto px-4">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-xl font-bold text-white">Related Articles</h2>
-              <Link to="/blog" className="btn-secondary px-4 py-2 text-xs">
+              <Link to="/blogs" className="btn-secondary px-4 py-2 text-xs">
                 All Posts <FiArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -158,7 +158,7 @@ export default function BlogPost() {
             >
               Book Free Call <FiArrowRight className="w-4 h-4" />
             </a>
-            <Link to="/blog" className="btn-secondary px-8 py-3">
+            <Link to="/blogs" className="btn-secondary px-8 py-3">
               <FiArrowLeft className="w-4 h-4" /> Back to Blog
             </Link>
           </div>
@@ -173,7 +173,7 @@ function RelatedCard({ post }) {
 
   return (
     <Link
-      to={`/blog/${post.slug}`}
+      to={`/blogs/${post.slug}`}
       ref={ref}
       className={`group card block overflow-hidden transition-all duration-700 hover:border-white/20 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

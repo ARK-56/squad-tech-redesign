@@ -22,7 +22,7 @@ export default function Blog() {
               <span className="brand-text">Case Studies</span>
             </h2>
           </div>
-          <Link to="/blog" className="btn-secondary shrink-0 px-5 py-2.5 text-sm">
+          <Link to="/blogs" className="btn-secondary shrink-0 px-5 py-2.5 text-sm">
             View All Posts <FiArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -43,7 +43,7 @@ const BlogCard = memo(function BlogCard({ post, index }) {
 
   return (
     <Link
-      to={`/blog/${post.slug}`}
+      to={`/blogs/${post.slug}`}
       ref={ref}
       className={`group card overflow-hidden cursor-pointer transition-all duration-700 block ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

@@ -55,12 +55,14 @@ const ProjectCard = memo(function ProjectCard({ project, index }) {
         boxShadow: `0 0 18px rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.12)`,
       }}
       onMouseEnter={e => {
-        e.currentTarget.style.boxShadow = `0 0 32px rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.28)`
+        e.currentTarget.style.boxShadow = `0 8px 40px rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.3)`
         e.currentTarget.style.borderColor = `rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.5)`
+        e.currentTarget.style.transform = 'translateY(-6px)'
       }}
       onMouseLeave={e => {
         e.currentTarget.style.boxShadow = `0 0 18px rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.12)`
         e.currentTarget.style.borderColor = `rgba(${project.accentColor === '#e73103' ? '231,49,3' : '245,142,30'},0.25)`
+        e.currentTarget.style.transform = 'translateY(0)'
       }}
     >
       {/* Image */}
