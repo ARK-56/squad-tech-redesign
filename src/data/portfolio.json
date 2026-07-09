@@ -1,5 +1,13 @@
 {
-  "categories": ["All", "Social", "Web", "Brand", "Media", "SEO", "Remote"],
+  "categories": [
+    "All",
+    "Social",
+    "Web",
+    "Brand",
+    "Media",
+    "SEO",
+    "Remote"
+  ],
   "projects": [
     {
       "slug": "dexsora-digital-presence",
@@ -8,8 +16,16 @@
       "category": "Social",
       "description": "We deployed a hyper-targeted content matrix that elevated community engagement and turned organic social into a primary acquisition channel.",
       "image": "/images/portfolio-dexsora-smm.avif",
-      "tags": ["Social Media", "Content Strategy", "Growth"],
-      "results": ["3.8x ROAS", "+210% engagement", "+120% follower growth"],
+      "tags": [
+        "Social Media",
+        "Content Strategy",
+        "Growth"
+      ],
+      "results": [
+        "3.8x ROAS",
+        "+210% engagement",
+        "+120% follower growth"
+      ],
       "accentColor": "#e73103",
       "behanceUrl": "https://www.behance.net/gallery/248012997/Dexsora-Digital-Presence"
     },
@@ -20,8 +36,16 @@
       "category": "Web",
       "description": "A collection of pixel-perfect web applications built with clean code and smooth animations, engineered to convert at every scroll depth.",
       "image": "/images/portfolio-websites-showcase.avif",
-      "tags": ["React", "Next.js", "Tailwind"],
-      "results": ["97 Lighthouse score", "3-week delivery", "$0 upfront cost"],
+      "tags": [
+        "React",
+        "Next.js",
+        "Tailwind"
+      ],
+      "results": [
+        "97 Lighthouse score",
+        "3-week delivery",
+        "$0 upfront cost"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": "https://www.behance.net/gallery/247938555/Websites-Design-Showcase"
     },
@@ -32,8 +56,16 @@
       "category": "Web",
       "description": "We transformed an outdated digital presence into a high-octane branding ecosystem, resulting in a 45% uplift in qualified inbound leads.",
       "image": "/images/portfolio-redesign-agency.avif",
-      "tags": ["Web Design", "UI/UX", "Branding"],
-      "results": ["+45% inbound leads", "Full redesign", "14-day delivery"],
+      "tags": [
+        "Web Design",
+        "UI/UX",
+        "Branding"
+      ],
+      "results": [
+        "+45% inbound leads",
+        "Full redesign",
+        "14-day delivery"
+      ],
       "accentColor": "#e73103",
       "behanceUrl": "https://www.behance.net/gallery/250491811/Redesign-Website-for-Digital-Creative-Agency"
     },
@@ -44,8 +76,16 @@
       "category": "Brand",
       "description": "A masterclass in corporate minimalism. We built a scalable visual toolkit engineered to command immediate market authority across every touchpoint.",
       "image": "/images/portfolio-squad-international.avif",
-      "tags": ["Logo", "Brand Book", "Identity"],
-      "results": ["60-page brand book", "Full asset suite", "14-day turnaround"],
+      "tags": [
+        "Logo",
+        "Brand Book",
+        "Identity"
+      ],
+      "results": [
+        "60-page brand book",
+        "Full asset suite",
+        "14-day turnaround"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": "https://www.behance.net/gallery/248748995/Squad-International-Brand-Identity"
     },
@@ -56,8 +96,16 @@
       "category": "Brand",
       "description": "We designed clean, enterprise-grade stationery and brand touchpoints that seamlessly blend strict medical compliance with premium visual identity.",
       "image": "/images/portfolio-squad-medical.avif",
-      "tags": ["Brand Identity", "Stationery", "Design"],
-      "results": ["Full brand system", "Print-ready assets", "10-day delivery"],
+      "tags": [
+        "Brand Identity",
+        "Stationery",
+        "Design"
+      ],
+      "results": [
+        "Full brand system",
+        "Print-ready assets",
+        "10-day delivery"
+      ],
       "accentColor": "#e73103",
       "behanceUrl": "https://www.behance.net/gallery/248608779/Squad-Medical-Supplies-Branding-Stationary"
     },
@@ -68,8 +116,16 @@
       "category": "Brand",
       "description": "A rapid design sprint focused on constructing digital-first brand assets and fluid user pathways that convert browsers into loyal customers.",
       "image": "/images/portfolio-shinkyowa.avif",
-      "tags": ["Brand Design", "Logo", "Identity"],
-      "results": ["Digital-first assets", "Full brand kit", "7-day sprint"],
+      "tags": [
+        "Brand Design",
+        "Logo",
+        "Identity"
+      ],
+      "results": [
+        "Digital-first assets",
+        "Full brand kit",
+        "7-day sprint"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": "https://www.behance.net/gallery/248359285/Shinkyowa-Brand-Design"
     },
@@ -80,8 +136,16 @@
       "category": "Brand",
       "description": "We delivered a rigid, reliable brand architecture that perfectly aligns this logistics powerhouse's operational excellence with enterprise-level visual authority.",
       "image": "/images/portfolio-aaa-dme.avif",
-      "tags": ["Brand Identity", "Logo", "Corporate"],
-      "results": ["Enterprise identity", "Full brand manual", "12-day delivery"],
+      "tags": [
+        "Brand Identity",
+        "Logo",
+        "Corporate"
+      ],
+      "results": [
+        "Enterprise identity",
+        "Full brand manual",
+        "12-day delivery"
+      ],
       "accentColor": "#e73103",
       "behanceUrl": "https://www.behance.net/gallery/248339605/AAA-DME-INC-Brand-Identity"
     },
@@ -92,8 +156,16 @@
       "category": "Media",
       "description": "An exclusive look behind the lens at the meticulous planning and elite art direction we inject into every commercial photoshoot we produce.",
       "image": "/images/portfolio-photoshoot.avif",
-      "tags": ["Photography", "Art Direction", "Production"],
-      "results": ["Commercial-grade", "Full production", "Multi-platform"],
+      "tags": [
+        "Photography",
+        "Art Direction",
+        "Production"
+      ],
+      "results": [
+        "Commercial-grade",
+        "Full production",
+        "Multi-platform"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": "https://www.behance.net/gallery/248131599/Professional-Media-Production-for-Every-Need"
     },
@@ -104,8 +176,16 @@
       "category": "Media",
       "description": "We produce platform-optimized, broadcast-quality digital reels and commercial spots designed to capture attention and drive measurable action.",
       "image": "/images/portfolio-media-production.avif",
-      "tags": ["Video Production", "Reels", "Commercial"],
-      "results": ["Broadcast quality", "Multi-platform", "48hr turnaround"],
+      "tags": [
+        "Video Production",
+        "Reels",
+        "Commercial"
+      ],
+      "results": [
+        "Broadcast quality",
+        "Multi-platform",
+        "48hr turnaround"
+      ],
       "accentColor": "#e73103",
       "behanceUrl": "https://www.behance.net/gallery/248130301/Photoshoot-Behind-the-Scenes"
     },
@@ -116,8 +196,16 @@
       "category": "Remote",
       "description": "Bypass traditional hiring overhead with elite, fully integrated tech and marketing talent built to scale your team without the overhead.",
       "image": "/images/portfolio-remote-staff.avif",
-      "tags": ["Remote Staff", "Tech Talent", "Marketing"],
-      "results": ["Senior-level only", "48hr placement", "Zero overhead"],
+      "tags": [
+        "Remote Staff",
+        "Tech Talent",
+        "Marketing"
+      ],
+      "results": [
+        "Senior-level only",
+        "48hr placement",
+        "Zero overhead"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": "https://www.behance.net/gallery/248129751/Dedicated-Remote-Staff"
     },
@@ -128,8 +216,16 @@
       "category": "Brand",
       "description": "A curated exhibition of standalone logos and iconic wordmarks distilled to their absolute essence — form, meaning, and longevity in perfect balance.",
       "image": "/images/portfolio-logofolio.avif",
-      "tags": ["Logo Design", "Wordmarks", "Identity"],
-      "results": ["20+ logos", "Multi-industry", "Timeless design"],
+      "tags": [
+        "Logo Design",
+        "Wordmarks",
+        "Identity"
+      ],
+      "results": [
+        "20+ logos",
+        "Multi-industry",
+        "Timeless design"
+      ],
       "accentColor": "#e73103",
       "behanceUrl": "https://www.behance.net/gallery/247938143/LogoFolio"
     },
@@ -140,8 +236,16 @@
       "category": "Brand",
       "description": "We engineered a slick, future-proof visual language that scales effortlessly from small mobile interfaces to large-format commercial environments.",
       "image": "/images/portfolio-dexsora-brand.avif",
-      "tags": ["Brand Identity", "Logo", "Visual Language"],
-      "results": ["Future-proof system", "Full brand kit", "10-day delivery"],
+      "tags": [
+        "Brand Identity",
+        "Logo",
+        "Visual Language"
+      ],
+      "results": [
+        "Future-proof system",
+        "Full brand kit",
+        "10-day delivery"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": "https://www.behance.net/gallery/246970917/Dexsora-Brand-Identity"
     },
@@ -152,8 +256,16 @@
       "category": "Web",
       "description": "A dark, conversion-focused website for a healthcare marketing agency — lead capture forms, data-driven messaging, and a seamless digital presence built to attract patients.",
       "image": "/images/portfolio-roow-marketing.png",
-      "tags": ["Web Design", "UI/UX", "Marketing Agency"],
-      "results": ["Lead gen forms", "Healthcare niche", "2026 delivery"],
+      "tags": [
+        "Web Design",
+        "UI/UX",
+        "Marketing Agency"
+      ],
+      "results": [
+        "Lead gen forms",
+        "Healthcare niche",
+        "2026 delivery"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": null
     },
@@ -164,8 +276,16 @@
       "category": "Web",
       "description": "A high-performance e-commerce platform for a trusted Japanese vehicle exporter — real-time stock data, multi-currency support, and global shipment tracking.",
       "image": "/images/portfolio-atlas-automotive.png",
-      "tags": ["Web Design", "E-Commerce", "Automotive"],
-      "results": ["533K+ cars listed", "Multi-currency", "2026 delivery"],
+      "tags": [
+        "Web Design",
+        "E-Commerce",
+        "Automotive"
+      ],
+      "results": [
+        "533K+ cars listed",
+        "Multi-currency",
+        "2026 delivery"
+      ],
       "accentColor": "#e73103",
       "behanceUrl": null
     },
@@ -176,8 +296,16 @@
       "category": "Web",
       "description": "A bold, conversion-focused website for a premium oil solutions provider — clean product cataloguing, oil terminal pages, and a careers flow built for scale.",
       "image": "/images/portfolio-auto-trader.jpg",
-      "tags": ["Web Design", "UI/UX", "Energy"],
-      "results": ["Full website build", "Blog integration", "2026 delivery"],
+      "tags": [
+        "Web Design",
+        "UI/UX",
+        "Energy"
+      ],
+      "results": [
+        "Full website build",
+        "Blog integration",
+        "2026 delivery"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": null
     },
@@ -188,8 +316,16 @@
       "category": "Web",
       "description": "A sleek, dark-themed web presence for a creative design agency — editorial typography, grid-based layout, and a portfolio showcase engineered to impress at first glance.",
       "image": "/images/portfolio-saas-diplomacy.png",
-      "tags": ["UI/UX Design", "Web Design", "SaaS"],
-      "results": ["Dark UI design", "Agency showcase", "2026 delivery"],
+      "tags": [
+        "UI/UX Design",
+        "Web Design",
+        "SaaS"
+      ],
+      "results": [
+        "Dark UI design",
+        "Agency showcase",
+        "2026 delivery"
+      ],
       "accentColor": "#e73103",
       "behanceUrl": null
     },
@@ -200,8 +336,16 @@
       "category": "Web",
       "description": "A HIPAA-compliant medical supply e-commerce build featuring insurance verification flows, real-time health analytics, and a streamlined order experience.",
       "image": "/images/portfolio-sg-medicals.png",
-      "tags": ["Web Design", "E-Commerce", "Medical"],
-      "results": ["HIPAA compliant", "Insurance flow", "2026 delivery"],
+      "tags": [
+        "Web Design",
+        "E-Commerce",
+        "Medical"
+      ],
+      "results": [
+        "HIPAA compliant",
+        "Insurance flow",
+        "2026 delivery"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": null
     },
@@ -212,8 +356,16 @@
       "category": "Web",
       "description": "A full-stack medical equipment platform serving 260k+ patients — FDA-certified product listings, HIPAA compliance, and a 98% on-time delivery track record.",
       "image": "/images/portfolio-unity-health.png",
-      "tags": ["Web Design", "E-Commerce", "Medical"],
-      "results": ["260k+ patients", "4.9/5 rating", "2026 delivery"],
+      "tags": [
+        "Web Design",
+        "E-Commerce",
+        "Medical"
+      ],
+      "results": [
+        "260k+ patients",
+        "4.9/5 rating",
+        "2026 delivery"
+      ],
       "accentColor": "#e73103",
       "behanceUrl": null
     },
@@ -224,8 +376,16 @@
       "category": "Web",
       "description": "A bold, conversion-focused website built for our own agency — dark theme, animated stats, and a seamless UX designed to turn visitors into clients.",
       "image": "/images/portfolio-squad-tech-web.png",
-      "tags": ["UI/UX Design", "Web Design", "React"],
-      "results": ["97 Lighthouse score", "Dark theme", "2026 delivery"],
+      "tags": [
+        "UI/UX Design",
+        "Web Design",
+        "React"
+      ],
+      "results": [
+        "97 Lighthouse score",
+        "Dark theme",
+        "2026 delivery"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": null
     },
@@ -236,8 +396,16 @@
       "category": "Web",
       "description": "A lead-generation powerhouse built for a healthcare marketing agency in Dubai, featuring an integrated form flow and data-driven conversion strategy.",
       "image": "/images/portfolio-future-marketing.png",
-      "tags": ["Web Design", "UI/UX", "Healthcare"],
-      "results": ["Conversion-optimised", "Lead gen forms", "2026 delivery"],
+      "tags": [
+        "Web Design",
+        "UI/UX",
+        "Healthcare"
+      ],
+      "results": [
+        "Conversion-optimised",
+        "Lead gen forms",
+        "2026 delivery"
+      ],
       "accentColor": "#e73103",
       "behanceUrl": null
     },
@@ -248,8 +416,16 @@
       "category": "Web",
       "description": "Full e-commerce and web design for a medical equipment provider — clean architecture, insurance-verification flow, and product cataloguing built to scale.",
       "image": "/images/portfolio-aaa-dme-web.png",
-      "tags": ["Web Design", "E-Commerce", "Medical"],
-      "results": ["Full e-commerce build", "Insurance flow", "2026 delivery"],
+      "tags": [
+        "Web Design",
+        "E-Commerce",
+        "Medical"
+      ],
+      "results": [
+        "Full e-commerce build",
+        "Insurance flow",
+        "2026 delivery"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": null
     },
@@ -260,8 +436,16 @@
       "category": "Web",
       "description": "A custom-built admin dashboard for a Japanese used-car dealer — real-time finance tracking, customer management, and shipment analytics in one sleek interface.",
       "image": "/images/portfolio-shinkyowa-admin.png",
-      "tags": ["UI/UX Design", "Dashboard", "Admin Panel"],
-      "results": ["Real-time analytics", "Customer CRM", "2026 delivery"],
+      "tags": [
+        "UI/UX Design",
+        "Dashboard",
+        "Admin Panel"
+      ],
+      "results": [
+        "Real-time analytics",
+        "Customer CRM",
+        "2026 delivery"
+      ],
       "accentColor": "#e73103",
       "behanceUrl": null
     },
@@ -272,22 +456,19 @@
       "category": "Web",
       "description": "An FDA-certified medical equipment e-commerce platform with HIPAA-compliant intake, insurance verification, and free-shipping conversion triggers.",
       "image": "/images/portfolio-altivox.png",
-      "tags": ["Web Design", "E-Commerce", "Medical"],
-      "results": ["HIPAA compliant", "FDA certified UX", "2026 delivery"],
+      "tags": [
+        "Web Design",
+        "E-Commerce",
+        "Medical"
+      ],
+      "results": [
+        "HIPAA compliant",
+        "FDA certified UX",
+        "2026 delivery"
+      ],
       "accentColor": "#f58e1e",
       "behanceUrl": null
-    },
-    {
-      "slug": "seo-vs-ppc",
-      "title": "SEO vs PPC: What's the Difference?",
-      "client": "Aether Digital",
-      "category": "SEO",
-      "description": "We break down how combining aggressive PPC pipelines with bulletproof SEO architectures permanently dominates search intent and drives compounding ROI.",
-      "image": "/images/portfolio-seo-ppc.avif",
-      "tags": ["Technical SEO", "PPC", "Strategy"],
-      "results": ["18 keywords in top 3", "+340% organic traffic", "6.2x ROI"],
-      "accentColor": "#e73103",
-      "behanceUrl": "https://www.behance.net/gallery/248123881/SEO-vs-PPC-Whats-the-Difference"
     }
-  ]
+  ],
+  "bin": []
 }
