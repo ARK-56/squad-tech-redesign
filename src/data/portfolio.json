@@ -468,7 +468,9 @@
       ],
       "accentColor": "#f58e1e",
       "behanceUrl": null
-    },
+    }
+  ],
+  "bin": [
     {
       "slug": "test",
       "title": "Test",
@@ -479,8 +481,8 @@
       "tags": [],
       "results": [],
       "accentColor": "#e73103",
-      "behanceUrl": null
+      "behanceUrl": null,
+      "deletedAt": "2026-07-09T17:09:19.053Z"
     }
-  ],
-  "bin": []
+  ]
 }
