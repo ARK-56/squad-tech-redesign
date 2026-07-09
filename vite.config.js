@@ -6,9 +6,6 @@ export default defineConfig({
   server: {
     port: 5175,
     strictPort: true,
-    proxy: {
-      '/api': 'http://localhost:3001',
-    },
   },
   build: {
     rollupOptions: {

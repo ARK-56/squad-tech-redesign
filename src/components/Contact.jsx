@@ -24,12 +24,13 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error || 'Something went wrong.')
+      const text = await res.text()
+      const data = text ? JSON.parse(text) : {}
+      if (!res.ok) throw new Error(data.error || 'Server error. Please try again.')
       setStatus('success')
       setForm({ name: '', email: '', service: '', message: '' })
     } catch (err) {
-      setError(err.message)
+      setError(err.message.includes('JSON') ? 'Could not reach the server. Please try again.' : err.message)
       setStatus('idle')
     }
   }
