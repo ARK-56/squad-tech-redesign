@@ -36,6 +36,30 @@ const testimonial = {
 
 export default function StartPage() {
   const [focused, setFocused] = useState(null)
+  const [form, setForm] = useState({ name: '', email: '', company: '', phone: '', website: '', budget: '', service: '', message: '' })
+  const [status, setStatus] = useState('idle')
+  const [error, setError] = useState('')
+
+  const set = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('loading')
+    setError('')
+    try {
+      const res = await fetch('/api/strategy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.')
+      setStatus('success')
+    } catch (err) {
+      setError(err.message)
+      setStatus('idle')
+    }
+  }
 
   return (
     <div className="min-h-screen font-sans">
@@ -137,11 +161,19 @@ export default function StartPage() {
                   <p className="text-white/50 text-sm">We'll respond within 24 hours with a custom plan.</p>
                 </div>
 
-                {/* Actual form — posts to live endpoint */}
+                {status === 'success' ? (
+                  <div className="px-8 py-16 text-center">
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: 'linear-gradient(135deg, #e73103, #f58e1e)' }}>
+                      <span className="text-white text-2xl font-bold">✓</span>
+                    </div>
+                    <h3 className="text-white text-xl font-bold mb-2">Request Sent!</h3>
+                    <p className="text-white/50 text-sm">Check your inbox — we'll follow up within 24 hours with your custom strategy.</p>
+                  </div>
+                ) : null}
                 <form
-                  action="https://squadtechsol.com/form-submission"
-                  method="POST"
+                  onSubmit={handleSubmit}
                   className="start-form px-8 py-8 space-y-5"
+                  style={{ display: status === 'success' ? 'none' : undefined }}
                 >
                   {/* Name + Email */}
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -151,6 +183,8 @@ export default function StartPage() {
                         name="name"
                         placeholder="Your full name"
                         required
+                        value={form.name}
+                        onChange={set('name')}
                         onFocus={() => setFocused('name')}
                         onBlur={() => setFocused(null)}
                       />
@@ -161,6 +195,8 @@ export default function StartPage() {
                         name="email"
                         placeholder="you@company.com"
                         required
+                        value={form.email}
+                        onChange={set('email')}
                         onFocus={() => setFocused('email')}
                         onBlur={() => setFocused(null)}
                       />
@@ -175,6 +211,8 @@ export default function StartPage() {
                         name="company"
                         placeholder="Company or brand name"
                         required
+                        value={form.company}
+                        onChange={set('company')}
                         onFocus={() => setFocused('company')}
                         onBlur={() => setFocused(null)}
                       />
@@ -185,6 +223,8 @@ export default function StartPage() {
                         name="phone"
                         placeholder="+1 (555) 000-0000"
                         required
+                        value={form.phone}
+                        onChange={set('phone')}
                         onFocus={() => setFocused('phone')}
                         onBlur={() => setFocused(null)}
                       />
@@ -198,6 +238,8 @@ export default function StartPage() {
                         type="text"
                         name="website"
                         placeholder="www.website.com"
+                        value={form.website}
+                        onChange={set('website')}
                         onFocus={() => setFocused('website')}
                         onBlur={() => setFocused(null)}
                       />
@@ -208,6 +250,8 @@ export default function StartPage() {
                         name="budget"
                         placeholder="Add your estimated budget"
                         required
+                        value={form.budget}
+                        onChange={set('budget')}
                         onFocus={() => setFocused('budget')}
                         onBlur={() => setFocused(null)}
                       />
@@ -219,11 +263,12 @@ export default function StartPage() {
                     <select
                       name="service"
                       required
-                      defaultValue=""
+                      value={form.service}
+                      onChange={set('service')}
                       onFocus={() => setFocused('service')}
                       onBlur={() => setFocused(null)}
                     >
-                      <option value="" disabled>Choose a service</option>
+                      <option value="" disabled hidden>Choose a service</option>
                       {services.map((s) => (
                         <option key={s} value={s}>{s}</option>
                       ))}
@@ -236,21 +281,28 @@ export default function StartPage() {
                       name="message"
                       placeholder="Tell us about your project, goals, timeline, or anything else that helps."
                       rows={4}
+                      value={form.message}
+                      onChange={set('message')}
                       onFocus={() => setFocused('message')}
                       onBlur={() => setFocused(null)}
                     />
                   </Field>
 
+                  {error && (
+                    <p className="text-red-400 text-sm text-center">{error}</p>
+                  )}
+
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-2xl font-bold text-white text-base flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5"
+                    disabled={status === 'loading'}
+                    className="w-full py-4 rounded-2xl font-bold text-white text-base flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
                     style={{
                       background: 'linear-gradient(135deg, #e73103, #f58e1e)',
                       boxShadow: '0 20px 52px rgba(231,49,3,0.28)',
                     }}
                   >
-                    Send My Free Strategy Request <FiArrowRight className="w-5 h-5" />
+                    {status === 'loading' ? 'Sending…' : <><span>Send My Free Strategy Request</span> <FiArrowRight className="w-5 h-5" /></>}
                   </button>
 
                   <p className="text-center text-white/30 text-xs">

@@ -10,14 +10,28 @@ const info = [
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', service: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState('idle')
+  const [error, setError] = useState('')
   const { ref, visible } = useScrollReveal()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
-    setForm({ name: '', email: '', service: '', message: '' })
+    setStatus('loading')
+    setError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.')
+      setStatus('success')
+      setForm({ name: '', email: '', service: '', message: '' })
+    } catch (err) {
+      setError(err.message)
+      setStatus('idle')
+    }
   }
 
   return (
@@ -84,7 +98,7 @@ export default function Contact() {
 
           {/* Form */}
           <div className="card p-7 md:p-8">
-            {submitted ? (
+            {status === 'success' ? (
               <div className="text-center py-12">
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
@@ -146,8 +160,15 @@ export default function Contact() {
                     style={{ background: 'rgba(255,255,255,0.05)' }}
                   />
                 </div>
-                <button type="submit" className="btn-primary w-full py-3.5 text-sm">
-                  Send Message <FiSend className="w-4 h-4" />
+                {error && (
+                  <p className="text-red-400 text-sm text-center">{error}</p>
+                )}
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="btn-primary w-full py-3.5 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {status === 'loading' ? 'Sending…' : <><span>Send Message</span> <FiSend className="w-4 h-4" /></>}
                 </button>
               </form>
             )}
