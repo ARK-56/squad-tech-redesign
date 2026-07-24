@@ -64,7 +64,7 @@ export const serviceLandings = {
   'seo-ppc': {
     headline: 'Rank Higher. Pay Less Per Lead. Grow Faster.',
     subheadline: 'Our SEO and PPC teams operate as one unit — sharing data, compounding results, and reporting on revenue, not just rankings.',
-    guarantee: 'Measurable ranking improvements within 90 days or we work for free',
+    guarantee: 'Month-to-month — no long-term contracts, cancel anytime',
     packages: [
       {
         name: 'Foundation',
@@ -114,7 +114,7 @@ export const serviceLandings = {
     ],
     faqs: [
       { q: 'How long does SEO take to show results?', a: 'Honest answer: 3–6 months for meaningful organic ranking movement, and up to 12 months for highly competitive keywords. PPC shows results within 2–4 weeks of launch. We combine both so you get immediate paid traffic while organic builds.' },
-      { q: 'Do you guarantee page 1 rankings?', a: 'We guarantee measurable rank improvements within 90 days — but no ethical SEO agency guarantees specific positions, as Google controls those. What we do guarantee is that your trajectory will be upward and documented.' },
+      { q: 'Do you guarantee page 1 rankings?', a: 'No — and be wary of any agency that does. Google controls rankings, so specific positions can never be promised honestly. What we do commit to is a documented baseline, transparent monthly reporting on rank movement and traffic, and month-to-month terms so you can judge the trajectory yourself.' },
       { q: 'Is the ad spend included in your fee?', a: 'No — ad spend goes directly to Google and Bing. Our fee covers strategy, setup, creative production, and ongoing management. We\'re transparent about this from day one.' },
       { q: 'What if I\'ve been burned by an SEO agency before?', a: 'It\'s common. Our first step is always a full technical audit of what the previous agency left behind. We document everything, fix the damage, and start with complete transparency about what\'s needed and why.' },
       { q: 'Do you work with local businesses or national brands?', a: 'Both. Local SEO and national SEO require different strategies, and we build the approach around your specific target geography and competition level.' },
@@ -187,7 +187,7 @@ export const serviceLandings = {
   'media-production': {
     headline: 'Scroll-Stopping Creative That Actually Converts',
     subheadline: 'Professional video and photography engineered for the platforms your audience lives on — not just visually impressive, but built to hit hook rate and CTR targets.',
-    guarantee: '78%+ average hook rate on all short-form video deliverables',
+    guarantee: 'Two rounds of revisions included on every deliverable',
     packages: [
       {
         name: 'Content Sprint',
@@ -249,7 +249,7 @@ export const serviceLandings = {
   'web-development': {
     headline: 'A Website Built to Convert — Free Until You Love It',
     subheadline: 'We design and develop your full website at zero cost upfront. Review the finished product. If you love it, you pay. If not, you walk away — no invoice, no hard feelings.',
-    guarantee: '$0 upfront. Pay only when you\'re completely satisfied with the result.',
+    guarantee: '$0 upfront. Your homepage concept is designed free — pay only if you love it.',
     packages: [
       {
         name: 'Landing Page',

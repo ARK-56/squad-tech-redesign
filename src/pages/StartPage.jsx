@@ -18,7 +18,7 @@ const services = [
 
 const proofPoints = [
   'Zero upfront cost — we work before you pay',
-  'Results guaranteed or we walk away',
+  'See the work before you commit',
   'No long-term contracts, ever',
   'Dedicated specialist on your account from day one',
   'Full-service: strategy, creative, tech & media',
@@ -31,11 +31,13 @@ const stats = [
   { value: '$0', label: 'Required Upfront' },
 ]
 
+// ⚠️ DRAFT — see src/data/testimonials.js: placeholder quote matched to a real
+// client logo. Replace with an approved, real statement before publishing.
 const testimonial = {
-  quote: 'Their marketing guarantee gave us complete peace of mind. Within weeks, our content views multiplied and user acquisition costs dropped dramatically.',
-  name: 'Alistair Vance',
-  role: 'Chief Product Officer, NexaCorp Industries',
-  initials: 'AV',
+  quote: 'Seeing the work before paying anything took all the risk out of the decision. Within 90 days our social channels were a real acquisition engine.',
+  name: 'Julian Marsh',
+  role: 'Head of Growth, Dexsora',
+  initials: 'JM',
 }
 
 export default function StartPage() {

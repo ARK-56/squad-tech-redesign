@@ -82,6 +82,7 @@ export default function Hero() {
 
             {/* Headline */}
             <h1 className="font-bold leading-[1.1] mb-5" style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)' }}>
+              High-Performance<br />
               <span className="brand-text">Marketing & Web Design</span>
             </h1>
 

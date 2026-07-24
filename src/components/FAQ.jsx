@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: 'What services does Squad Tech Solution offer?',
-    a: 'We offer six core services: Social Media Marketing, SEO & PPC, Brand Identity, Media Production, Web Development, and Dedicated Remote Staff. Each service is backed by our performance guarantee.',
+    a: 'We offer six core services: Social Media Marketing, SEO & PPC, Brand Identity, Media Production, Web Development, and Dedicated Remote Staff. Retainers run month-to-month, and web projects start with a free homepage concept.',
   },
   {
     q: 'Am I locked into a long-term contract?',
@@ -34,7 +34,7 @@ const faqs = [
 
 const ctaPoints = [
   'Free strategy session — no commitment',
-  'Results guaranteed or we walk away',
+  'See the work before you pay',
   'Response within 24 hours',
 ]
 

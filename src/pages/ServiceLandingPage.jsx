@@ -7,24 +7,27 @@ import { HiCheckCircle } from 'react-icons/hi2'
 import { services } from '../data/services'
 import { serviceLandings } from '../data/serviceLandings'
 
+// ⚠️ DRAFT — same caveat as src/data/testimonials.js: these quotes and contact
+// names are placeholders matched to real client logos. Replace with approved,
+// real statements before publishing.
 const testimonials = [
   {
-    quote: 'Their marketing guarantee gave us complete peace of mind. Within weeks, our content views multiplied and user acquisition costs dropped.',
-    name: 'Elena Rostova',
-    role: 'Director of Brand Experience, Veloce Digital',
-    initials: 'ER',
+    quote: 'Their content strategy turned our social channels from a broadcast feed into a real acquisition engine. Within 90 days our DMs were full of qualified leads.',
+    name: 'Julian Marsh',
+    role: 'Head of Growth, Dexsora',
+    initials: 'JM',
   },
   {
-    quote: 'What stood out most was the combination of design taste and implementation quality. Nothing felt generic, and nothing felt fragile.',
-    name: 'Aris Thorne',
-    role: 'Founder, Lumina Ventures',
-    initials: 'AT',
+    quote: 'They rebuilt our local search presence from the ground up. We now show up in the map pack for the searches that actually bring patients through the door.',
+    name: 'Dana Whitfield',
+    role: 'Practice Manager, Baybridge Health Care',
+    initials: 'DW',
   },
   {
-    quote: 'Squad Tech is elite. They handled our platform\'s scale effortlessly and delivered high-end video assets with the speed of true entrepreneurs.',
-    name: 'Sarah Jenkins',
-    role: 'CEO, Horizon Scale Media',
-    initials: 'SJ',
+    quote: 'The rebuild was fast and mobile-first, and our contact form submissions climbed steadily in the first quarter after launch.',
+    name: 'Robert Callahan',
+    role: 'Operations Director, AAA DME',
+    initials: 'RC',
   },
 ]
 
@@ -125,7 +128,7 @@ export default function ServiceLandingPage() {
             <h2 className="section-title">
               Simple, Transparent <span className="brand-text">Packages</span>
             </h2>
-            <p className="section-copy mt-4">All packages include our performance guarantee. No hidden fees.</p>
+            <p className="section-copy mt-4">All packages are month-to-month. No hidden fees, no long-term contracts.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">

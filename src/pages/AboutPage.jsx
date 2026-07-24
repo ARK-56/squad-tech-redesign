@@ -18,7 +18,7 @@ const values = [
   {
     icon: FiShield,
     title: 'We Prove It First',
-    desc: 'We put our work up first. Every engagement begins with a guarantee, not a down payment.',
+    desc: 'We put our work up first. Every engagement begins with something to show, not a down payment.',
     color: '#f58e1e',
   },
   {
@@ -85,7 +85,7 @@ export default function AboutPage() {
               </p>
               <p className="text-white/60 leading-relaxed mb-5">
                 So we built the full-service digital marketing agency we always wished existed: one that puts the
-                work up first, guarantees measurable results, and treats every client's growth as its own.
+                work up first, reports honestly on what it delivers, and treats every client's growth as its own.
                 We call it our work-first model — and it's changed how we win, how we work, and how we retain.
               </p>
               <p className="text-white/60 leading-relaxed">

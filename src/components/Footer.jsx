@@ -71,7 +71,7 @@ export default function Footer() {
                 Deploy a High-Converting Strategy
               </h3>
               <p className="section-copy max-w-lg">
-                Ready to partner with a hungry agency that guarantees outcomes? See the work before you pay.
+                Ready to partner with a hungry agency that puts the work up first? See it before you pay.
               </p>
             </div>
             <div className="relative z-10 flex flex-col sm:flex-row gap-3 flex-shrink-0">

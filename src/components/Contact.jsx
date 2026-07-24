@@ -51,8 +51,8 @@ export default function Contact() {
             <span className="brand-text">From Day One</span>
           </h2>
           <p className="section-copy mt-4 max-w-xl">
-            Book a free breakthrough call with our hungry engineering team today. Let us draft your
-            layout free and build a digital identity worth talking about.
+            Book a free breakthrough call with our hungry engineering team today. We'll design your
+            homepage concept free and build a digital identity worth talking about.
           </p>
         </div>
 

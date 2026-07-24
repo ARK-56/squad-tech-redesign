@@ -92,7 +92,8 @@ export default function ReviewsPage() {
             <span className="brand-text">Success Story</span>
           </h2>
           <p className="section-copy max-w-md mx-auto mb-8">
-            See the work before you pay for it.
+            Join the brands who let us prove it first — we design your homepage concept free, and you
+            see the work before you pay for it.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link href="/start" className="btn-primary px-8 py-3">
