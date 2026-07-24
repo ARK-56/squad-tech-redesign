@@ -1,28 +1,29 @@
+'use client'
+
 import { useEffect, useRef, useState } from 'react'
-import { FiArrowRight, FiCalendar } from 'react-icons/fi'
+import { FiArrowRight, FiCalendar, FiVolume2, FiVolumeX } from 'react-icons/fi'
 import { HiCheckCircle } from 'react-icons/hi2'
+import { companyStats, heroStats } from '../data/stats'
 
 const proofChips = [
-  'Zero-risk guarantee',
+  'No upfront payment',
   '7 years delivering',
   'No contracts',
 ]
 
-const floatStats = [
-  { value: '200+', label: 'Projects Delivered', pos: 'top-8 -left-4' },
-  { value: '+98%', label: 'Client Satisfaction', pos: 'bottom-8 -right-4' },
-]
-
-const stats = [
-  { value: '200+', label: 'Successful Projects' },
-  { value: '7', label: 'Years of Experience' },
-  { value: '+98%', label: 'Client Satisfaction' },
-  { value: '10M+', label: 'Impressions' },
-  { value: '67+', label: 'Global Clients' },
-]
+const stats = heroStats
 
 export default function Hero() {
   const orbRef = useRef(null)
+  const videoRef = useRef(null)
+  const [isMuted, setIsMuted] = useState(true)
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted
+      setIsMuted(videoRef.current.muted)
+    }
+  }
 
   useEffect(() => {
     let rafId = null
@@ -77,18 +78,17 @@ export default function Hero() {
             </div>
 
             {/* Eyebrow */}
-            <p className="eyebrow mb-4">OUTCOME-DRIVEN TECH AGENCY</p>
+            <p className="eyebrow mb-4">FULL-SERVICE DIGITAL MARKETING AGENCY</p>
 
             {/* Headline */}
             <h1 className="font-bold leading-[1.1] mb-5" style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)' }}>
-              Risk-Free<br />
-              <span className="brand-text">Digital Products</span>
+              <span className="brand-text">Marketing & Web Design</span>
             </h1>
 
             {/* Copy */}
             <p className="section-copy mb-8 max-w-xl">
-              Squad Tech Solution delivers elite software, marketing, and design. Try our 100% free
-              website offer: if you don't love the design, we walk right away.
+              Squad Tech Solution is a full-service digital marketing agency delivering social media marketing,
+              SEO & Google Ads, custom web development, and brand identity — you see the work before you pay.
             </p>
 
             {/* CTAs */}
@@ -120,6 +120,19 @@ export default function Hero() {
               ))}
             </div>
 
+            {/* Service chips */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {['Social Media Marketing', 'SEO & Google Ads', 'Web Development', 'Brand Identity', 'Media Production'].map((s) => (
+                <span
+                  key={s}
+                  className="px-3 py-1 rounded-full text-xs font-medium text-white/40 border border-white/08"
+                  style={{ background: 'rgba(255,255,255,0.02)' }}
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+
             {/* Trustpilot badge */}
             <a
               href="https://uk.trustpilot.com/review/squadtechsol.com"
@@ -129,14 +142,14 @@ export default function Hero() {
               style={{ background: 'rgba(255,255,255,0.04)' }}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="24" height="24" rx="4" fill="#00B67A"/>
-                <path d="M12 16.5l-4.5 2.7 1.2-5-4-3.5 5.2-.4L12 5.5l2.1 4.8 5.2.4-4 3.5 1.2 5z" fill="white"/>
+                <rect width="24" height="24" rx="4" fill="#00B67A" />
+                <path d="M12 16.5l-4.5 2.7 1.2-5-4-3.5 5.2-.4L12 5.5l2.1 4.8 5.2.4-4 3.5 1.2 5z" fill="white" />
               </svg>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1 mb-0.5">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#00B67A" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                     </svg>
                   ))}
                 </div>
@@ -148,19 +161,38 @@ export default function Hero() {
           {/* Right - video placeholder */}
           <div className="relative hidden lg:block animate-fade-up animate-delay-200">
             <div
-              className="relative rounded-3xl overflow-hidden border border-white/10 aspect-[4/3]"
+              className="relative rounded-3xl overflow-hidden border border-white/10 aspect-[5/3]"
               style={{ background: 'rgba(255,255,255,0.04)' }}
             >
               <video
-                autoPlay muted loop playsInline preload="metadata"
+                ref={videoRef}
+                autoPlay
+                muted={isMuted}
+                loop
+                playsInline
+                preload="metadata"
                 className="w-full h-full object-cover opacity-90"
               >
-                <source src="/videos/Promotional-Intro-Squad-Tech-Solution.mp4" type="video/mp4" />
+                {/* <source src="/videos/Promotional-Intro-Squad-Tech-Solution.mp4" type="video/mp4" /> */}
+                <source src="/videos/hero-video.mp4" type="video/mp4" />
               </video>
 
+              {/* Mute button on top right */}
+              <button
+                onClick={toggleMute}
+                className="absolute top-4 right-4 z-20 p-2.5 rounded-full border border-white/10 bg-black/60 hover:bg-black/80 hover:border-white/20 transition-all text-white/80 hover:text-white"
+                aria-label={isMuted ? "Unmute video" : "Mute video"}
+              >
+                {isMuted ? (
+                  <FiVolumeX className="w-4 h-4" />
+                ) : (
+                  <FiVolume2 className="w-4 h-4" />
+                )}
+              </button>
+
               {/* Tag overlays */}
-              <div className="absolute bottom-4 left-4 flex gap-2">
-                {['Free preview', 'Our philosophy', 'How we Work'].map((tag) => (
+              {/* <div className="absolute bottom-4 left-4 flex gap-2">
+                {['Social media · SEO · Web design', 'See the work first', '200+ brands grown'].map((tag) => (
                   <span
                     key={tag}
                     className="px-3 py-1.5 rounded-full text-xs font-semibold text-white/80 border border-white/10"
@@ -169,7 +201,7 @@ export default function Hero() {
                     {tag}
                   </span>
                 ))}
-              </div>
+              </div> */}
             </div>
 
             {/* Float cards */}
@@ -177,16 +209,16 @@ export default function Hero() {
               className="absolute -top-4 -left-6 rounded-2xl px-4 py-3 border border-white/10 animate-float"
               style={{ background: 'rgba(10,10,10,0.9)', backdropFilter: 'blur(12px)', animationDuration: '4s' }}
             >
-              <div className="text-2xl font-bold brand-text">200+</div>
-              <div className="text-xs text-white/50 font-medium">Projects Delivered</div>
+              <div className="text-2xl font-bold brand-text">{companyStats.projects.value}</div>
+              <div className="text-xs text-white/50 font-medium">{companyStats.projects.label}</div>
             </div>
 
             <div
-              className="absolute -bottom-4 -right-6 rounded-2xl px-4 py-3 border border-white/10 animate-float"
+              className="absolute -right-6 rounded-2xl px-4 py-3 border border-white/10 animate-float"
               style={{ background: 'rgba(10,10,10,0.9)', backdropFilter: 'blur(12px)', animationDuration: '4.5s', animationDelay: '1s' }}
             >
-              <div className="text-2xl font-bold text-green-400">+98%</div>
-              <div className="text-xs text-white/50 font-medium">Client Satisfaction</div>
+              <div className="text-2xl font-bold text-green-400">{companyStats.satisfaction.value}</div>
+              <div className="text-xs text-white/50 font-medium">{companyStats.satisfaction.label}</div>
             </div>
           </div>
         </div>

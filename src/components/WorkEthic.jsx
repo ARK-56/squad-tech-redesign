@@ -1,3 +1,5 @@
+'use client'
+
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const videos = [
@@ -55,16 +57,17 @@ function VideoCard({ video, index }) {
   return (
     <div
       ref={ref}
-      className={`group rounded-2xl overflow-hidden border border-white/10 relative transition-all duration-700 ${
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}
+      className={`group rounded-2xl overflow-hidden border border-white/10 relative transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
       style={{ transitionDelay: `${index * 100}ms`, background: 'rgba(255,255,255,0.04)', aspectRatio: '16/10' }}
     >
       <video
         muted
         playsInline
         preload="metadata"
-        controls
+        autoPlay
+        loop
+        // controls
         className="w-full h-full object-cover"
       >
         <source src={video.src} type="video/mp4" />

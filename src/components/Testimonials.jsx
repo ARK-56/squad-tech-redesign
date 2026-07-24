@@ -1,69 +1,9 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { testimonials } from '../data/testimonials'
 import useScrollReveal from '../hooks/useScrollReveal'
-
-const testimonials = [
-  {
-    quote: 'Their marketing guarantee gave us complete peace of mind. Within weeks, our content views multiplied and user acquisition costs dropped.',
-    name: 'Alistair Vance',
-    role: 'Chief Product Officer',
-    company: 'NexaCorp Industries',
-    country: 'United Kingdom',
-    tag: 'SaaS',
-    initials: 'AV',
-    color: '#e73103',
-  },
-  {
-    quote: 'Because they are a hungry team, they worked around the clock to deliver. The tailored software application works absolutely flawlessly.',
-    name: 'Elena Rostova',
-    role: 'Director of Brand Experience',
-    company: 'Veloce Digital',
-    country: 'Germany',
-    tag: 'Growth',
-    initials: 'ER',
-    color: '#f58e1e',
-  },
-  {
-    quote: 'What stood out most was the combination of design taste and implementation quality. Nothing felt generic, and nothing felt fragile.',
-    name: 'Aris Thorne',
-    role: 'Founder & CEO',
-    company: 'Lumina Ventures',
-    country: 'United States',
-    tag: 'Product',
-    initials: 'AT',
-    color: '#e73103',
-  },
-  {
-    quote: 'Squad Tech is elite. They handled our platform\'s scale effortlessly and delivered high-end video assets, moving fast without sacrificing quality.',
-    name: 'Linnea Holm',
-    role: 'Chief Technology Officer',
-    company: 'Synapse Global',
-    country: 'Sweden',
-    tag: 'Product',
-    initials: 'LH',
-    color: '#f58e1e',
-  },
-  {
-    quote: 'Squad Tech delivered flawlessly from web development to premium video production, operating with the speed, precision, and drive of true tech entrepreneurs.',
-    name: 'Sarah Jenkins',
-    role: 'Chief Operating Officer',
-    company: 'Horizon Scale Media',
-    country: 'New York, USA',
-    tag: 'Product',
-    initials: 'SJ',
-    color: '#e73103',
-  },
-  {
-    quote: 'What stood out most was the combination of design taste and implementation quality. Nothing felt generic, and nothing felt fragile.',
-    name: 'Marcus Vance',
-    role: 'VP of Marketing',
-    company: 'Aether Digital',
-    country: 'Canada',
-    tag: 'Product',
-    initials: 'MV',
-    color: '#f58e1e',
-  },
-]
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0)

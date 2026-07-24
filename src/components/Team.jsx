@@ -1,3 +1,5 @@
+'use client'
+
 import { FiLinkedin, FiTwitter, FiGithub } from 'react-icons/fi'
 import useScrollReveal from '../hooks/useScrollReveal'
 

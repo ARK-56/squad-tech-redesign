@@ -1,11 +1,22 @@
-import { memo } from 'react'
-import { Link } from 'react-router-dom'
+'use client'
+
+import { memo, useState, useEffect } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { FiArrowRight, FiClock, FiCalendar } from 'react-icons/fi'
-import { posts } from '../data/blog'
+import { posts as staticPosts } from '../data/blog'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 export default function Blog() {
+  const [posts, setPosts] = useState(staticPosts)
   const { ref, visible } = useScrollReveal()
+
+  useEffect(() => {
+    fetch('/api/blogs')
+      .then((r) => r.json())
+      .then((data) => { if (data.posts?.length) setPosts(data.posts) })
+      .catch(() => {})
+  }, [])
 
   return (
     <section id="blog" className="py-24 relative overflow-hidden">
@@ -22,7 +33,7 @@ export default function Blog() {
               <span className="brand-text">Case Studies</span>
             </h2>
           </div>
-          <Link to="/blogs" className="btn-secondary shrink-0 px-5 py-2.5 text-sm">
+          <Link href="/blogs" className="btn-secondary shrink-0 px-5 py-2.5 text-sm">
             View All Posts <FiArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -43,7 +54,7 @@ const BlogCard = memo(function BlogCard({ post, index }) {
 
   return (
     <Link
-      to={`/blogs/${post.slug}`}
+      href={`/blogs/${post.slug}`}
       ref={ref}
       className={`group card overflow-hidden cursor-pointer transition-all duration-700 block ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -52,12 +63,12 @@ const BlogCard = memo(function BlogCard({ post, index }) {
     >
       {/* Image header */}
       <div className="-mx-6 -mt-6 h-44 mb-5 relative overflow-hidden">
-        <img
+        <Image
           src={post.image}
           alt={post.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          loading="lazy"
-          decoding="async"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.2)' }} />
         <div className="absolute bottom-4 left-6">

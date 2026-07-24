@@ -1,9 +1,11 @@
+'use client'
+
 import { useState } from 'react'
 import { FiSend, FiMapPin, FiPhone, FiMail, FiCalendar } from 'react-icons/fi'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 const info = [
-  { icon: FiMapPin, label: 'Address', value: '276 Holten Ave, New York, United States' },
+  { icon: FiMapPin, label: 'Address', value: '276 Holten Ave, Staten Island, NY 10309-4028, United States' },
   { icon: FiPhone, label: 'Phone', value: '+1 (201) 820-6889', href: 'tel:+12018206889' },
   { icon: FiMail, label: 'Email', value: 'inquiry@squadtechsol.com', href: 'mailto:inquiry@squadtechsol.com' },
 ]
@@ -46,11 +48,11 @@ export default function Contact() {
           <p className="eyebrow mb-4">Let's build</p>
           <h2 className="section-title">
             Deploy a High-Converting Strategy,{' '}
-            <span className="brand-text">Risk-Free</span>
+            <span className="brand-text">From Day One</span>
           </h2>
           <p className="section-copy mt-4 max-w-xl">
             Book a free breakthrough call with our hungry engineering team today. Let us draft your
-            layout risk-free and build a digital identity worth talking about.
+            layout free and build a digital identity worth talking about.
           </p>
         </div>
 

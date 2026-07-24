@@ -1,5 +1,7 @@
+'use client'
+
 import { memo } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { FiArrowUpRight } from 'react-icons/fi'
 import { services } from '../data/services'
 import useScrollReveal from '../hooks/useScrollReveal'
@@ -21,7 +23,7 @@ export default function Services() {
             <span className="brand-text">Scale Your Business</span>
           </h2>
           <p className="section-copy max-w-2xl">
-            From zero-risk high-speed websites to hyper-targeted marketing campaigns, we deploy relentless
+            From high-speed websites to hyper-targeted marketing campaigns, we deploy relentless
             creative execution and custom tech to prove our absolute worth.
           </p>
         </div>
@@ -34,7 +36,7 @@ export default function Services() {
         </div>
 
         <div className="text-center">
-          <Link to="/services" className="btn-secondary px-8 py-3">
+          <Link href="/services" className="btn-secondary px-8 py-3">
             View All Services <FiArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
@@ -48,7 +50,7 @@ const ServiceCard = memo(function ServiceCard({ service, index }) {
 
   return (
     <Link
-      to={`/services/${service.slug}`}
+      href={`/services/${service.slug}`}
       ref={ref}
       className={`group card cursor-pointer relative overflow-hidden transition-all duration-700 block ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

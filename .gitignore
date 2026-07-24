@@ -28,3 +28,7 @@ dist-ssr
 
 # Local admin dashboard — never push to GitHub
 admin/
+
+# next.js
+.next
+next-env.d.ts

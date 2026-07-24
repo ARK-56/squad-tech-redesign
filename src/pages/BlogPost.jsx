@@ -1,15 +1,46 @@
-import { useParams, Link, Navigate } from 'react-router-dom'
+'use client'
+
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { useParams, redirect } from 'next/navigation'
 import { FiArrowRight, FiClock, FiCalendar, FiArrowLeft } from 'react-icons/fi'
-import { posts } from '../data/blog'
+import { posts as staticPosts, resolvePostResources } from '../data/blog'
+import { resolveAuthor } from '../data/authors'
+import { resources as allResources } from '../data/resources'
+import { FiDownload } from 'react-icons/fi'
+import NewsletterCTA from '../components/NewsletterCTA'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 export default function BlogPost() {
   const { slug } = useParams()
+  const [posts, setPosts] = useState(staticPosts)
+  const [cmsLoaded, setCmsLoaded] = useState(false)
+
+  useEffect(() => {
+    fetch('/api/blogs')
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.posts?.length) setPosts(data.posts.map((p) => ({ ...p, author: resolveAuthor(p), resources: resolvePostResources(p) })))
+      })
+      .catch(() => {})
+      .finally(() => setCmsLoaded(true))
+  }, [])
+
   const post = posts.find((p) => p.slug === slug)
 
-  if (!post) return <Navigate to="/blogs" replace />
+  // Don't redirect until the CMS overlay has had a chance to load —
+  // a post added via the admin panel may not be in the static bundle.
+  if (!post && !cmsLoaded) return null
+  if (!post) redirect('/blogs')
 
   const related = posts.filter((p) => p.slug !== slug).slice(0, 2)
+  const freeResources = (post.resources || [])
+    .map((rSlug) => allResources.find((r) => r.slug === rSlug))
+    .filter(Boolean)
+
+  const postImage = post.image?.startsWith('http') ? post.image : `https://squadtechsol.com${post.image}`
+  const postDate = isNaN(new Date(post.date)) ? post.date : new Date(post.date).toISOString().slice(0, 10)
 
   return (
     <div>
@@ -22,9 +53,9 @@ export default function BlogPost() {
         <div className="w-full max-w-[56rem] mx-auto px-4 relative z-10">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-1.5 text-xs text-white/30 mb-8 font-medium">
-            <Link to="/" className="hover:text-white/60 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-white/60 transition-colors">Home</Link>
             <span className="text-white/20">/</span>
-            <Link to="/blogs" className="hover:text-white/60 transition-colors">Blog</Link>
+            <Link href="/blogs" className="hover:text-white/60 transition-colors">Blog</Link>
             <span className="text-white/20">/</span>
             <span className="text-white/60 truncate max-w-[200px]">{post.title}</span>
           </nav>
@@ -52,19 +83,38 @@ export default function BlogPost() {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
             {post.title}
           </h1>
-          <p className="text-white/60 text-lg leading-relaxed">{post.excerpt}</p>
+          <p className="text-white/60 text-lg leading-relaxed mb-7">{post.excerpt}</p>
+
+          {/* Byline */}
+          {post.author && (
+            <Link href={`/writers/${post.author.slug}`} className="group inline-flex items-center gap-3">
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+                style={{ background: post.author.gradient }}
+              >
+                {post.author.initials}
+              </div>
+              <div>
+                <p className="text-white text-sm font-semibold group-hover:text-white/80 transition-colors">
+                  {post.author.name}
+                </p>
+                <p className="text-white/35 text-xs">{post.author.role}</p>
+              </div>
+            </Link>
+          )}
         </div>
       </section>
 
       {/* Featured image */}
       <div className="w-full max-w-[56rem] mx-auto px-4 pb-4">
-        <div className="rounded-2xl overflow-hidden border border-white/10" style={{ aspectRatio: '16/7' }}>
-          <img
+        <div className="relative rounded-2xl overflow-hidden border border-white/10" style={{ aspectRatio: '16/7' }}>
+          <Image
             src={post.image}
             alt={post.title}
-            className="w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
+            fill
+            priority
+            sizes="(max-width: 896px) 100vw, 896px"
+            className="object-cover"
           />
         </div>
       </div>
@@ -98,23 +148,88 @@ export default function BlogPost() {
             })}
           </article>
 
-          {/* Author */}
-          <div
-            className="mt-12 p-6 rounded-2xl flex items-center gap-5 border border-white/10"
-            style={{ background: 'rgba(255,255,255,0.04)' }}
-          >
+          {/* Free resources */}
+          {freeResources.length > 0 && (
             <div
-              className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-xl"
-              style={{ background: 'linear-gradient(135deg, #e73103, #f58e1e)' }}
+              className="mt-14 rounded-2xl border overflow-hidden"
+              style={{ borderColor: 'rgba(231,49,3,0.2)', background: 'rgba(255,255,255,0.02)' }}
             >
-              S
+              <div className="h-1" style={{ background: 'linear-gradient(90deg, #e73103, #f58e1e)' }} />
+              <div className="p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <FiDownload className="w-4 h-4" style={{ color: '#f58e1e' }} />
+                  <p className="text-white/30 text-xs uppercase tracking-widest font-semibold">Free Downloads</p>
+                </div>
+                <h3 className="text-white font-bold text-lg mb-6">
+                  Put This Article Into Practice{' '}
+                  <span className="brand-text">— Free Tools</span>
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {freeResources.map((res) => (
+                    <Link
+                      key={res.slug}
+                      href={`/resources?r=${res.slug}`}
+                      className="group flex items-start gap-4 rounded-xl border border-white/08 hover:border-white/20 p-4 transition-all duration-300"
+                      style={{ background: 'rgba(255,255,255,0.03)' }}
+                    >
+                      <div
+                        className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                        style={{ background: 'rgba(231,49,3,0.1)', border: '1px solid rgba(231,49,3,0.2)' }}
+                      >
+                        {res.icon}
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-white text-sm font-semibold leading-snug group-hover:text-white/80 transition-colors">
+                          {res.title}
+                        </p>
+                        <p className="text-white/35 text-xs mt-1">
+                          {res.format} · {res.pages} · {res.downloadCount} downloads
+                        </p>
+                        <span
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold mt-2.5 group-hover:gap-2.5 transition-all duration-300"
+                          style={{ color: '#f58e1e' }}
+                        >
+                          Get It Free <FiArrowRight className="w-3 h-3" />
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div>
-              <p className="text-white font-semibold text-sm">Squadtech Editorial</p>
-              <p className="text-white/40 text-xs mt-0.5">
-                Insights from the team at Squad Tech Solution — 30+ specialists across growth, engineering, design & media.
-              </p>
+          )}
+
+          {/* Author */}
+          {post.author && (
+            <div
+              className="mt-12 p-6 rounded-2xl border border-white/10"
+              style={{ background: 'rgba(255,255,255,0.04)' }}
+            >
+              <div className="flex items-start gap-5 flex-wrap sm:flex-nowrap">
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-xl"
+                  style={{ background: post.author.gradient }}
+                >
+                  {post.author.initials}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white/30 text-xs uppercase tracking-widest mb-1">Written by</p>
+                  <p className="text-white font-semibold text-sm">{post.author.name}</p>
+                  <p className="text-white/40 text-xs mt-1.5 leading-relaxed">{post.author.bio}</p>
+                </div>
+                <Link
+                  href={`/writers/${post.author.slug}`}
+                  className="btn-secondary px-4 py-2 text-xs flex-shrink-0 self-center"
+                >
+                  View Portfolio <FiArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
+          )}
+
+          {/* Newsletter */}
+          <div className="mt-8">
+            <NewsletterCTA variant="strip" />
           </div>
         </div>
       </section>
@@ -125,7 +240,7 @@ export default function BlogPost() {
           <div className="w-full max-w-[78rem] mx-auto px-4">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-xl font-bold text-white">Related Articles</h2>
-              <Link to="/blogs" className="btn-secondary px-4 py-2 text-xs">
+              <Link href="/blogs" className="btn-secondary px-4 py-2 text-xs">
                 All Posts <FiArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -143,11 +258,11 @@ export default function BlogPost() {
         <div className="w-full max-w-[78rem] mx-auto px-4 text-center">
           <p className="eyebrow mb-4">Work With Us</p>
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Ready to put this into practice?{' '}
-            <span className="brand-text">Let's talk.</span>
+            Rather have experts handle it?{' '}
+            <span className="brand-text">We'll do it for you.</span>
           </h2>
           <p className="section-copy max-w-md mx-auto mb-8">
-            Book a free discovery call and we'll build a custom strategy for your brand — before you commit to anything.
+            We run these strategies for 200+ brands — and you see the work before you pay.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
@@ -158,7 +273,7 @@ export default function BlogPost() {
             >
               Book Free Call <FiArrowRight className="w-4 h-4" />
             </a>
-            <Link to="/blogs" className="btn-secondary px-8 py-3">
+            <Link href="/blogs" className="btn-secondary px-8 py-3">
               <FiArrowLeft className="w-4 h-4" /> Back to Blog
             </Link>
           </div>
@@ -173,7 +288,7 @@ function RelatedCard({ post }) {
 
   return (
     <Link
-      to={`/blogs/${post.slug}`}
+      href={`/blogs/${post.slug}`}
       ref={ref}
       className={`group card block overflow-hidden transition-all duration-700 hover:border-white/20 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

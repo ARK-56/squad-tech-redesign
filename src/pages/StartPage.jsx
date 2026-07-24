@@ -1,7 +1,11 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+'use client'
+
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { FiArrowRight, FiCheck, FiPhone, FiMail, FiStar } from 'react-icons/fi'
 import { HiCheckCircle } from 'react-icons/hi2'
+import Footer from '../components/Footer'
 
 const services = [
   'Social Media Marketing',
@@ -39,6 +43,21 @@ export default function StartPage() {
   const [form, setForm] = useState({ name: '', email: '', company: '', phone: '', website: '', budget: '', service: '', message: '' })
   const [status, setStatus] = useState('idle')
   const [error, setError] = useState('')
+  const router = useRouter()
+  const searchParams = useSearchParams()
+
+  // Prefill when arriving from the Theme Directory (/start?theme=<name>)
+  useEffect(() => {
+    const theme = searchParams.get('theme')
+    if (theme) {
+      setForm((f) => ({
+        ...f,
+        service: 'Web Development',
+        message: `I'm interested in having you set up, customise, and optimise the "${theme}" theme for my business.`,
+      }))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const set = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }))
 
@@ -55,7 +74,7 @@ export default function StartPage() {
       const text = await res.text()
       const data = text ? JSON.parse(text) : {}
       if (!res.ok) throw new Error(data.error || 'Server error. Please try again.')
-      setStatus('success')
+      router.push('/thank-you?type=project')
     } catch (err) {
       setError(err.message.includes('JSON') ? 'Could not reach the server. Please try again.' : err.message)
       setStatus('idle')
@@ -67,7 +86,7 @@ export default function StartPage() {
       {/* Minimal header */}
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10" style={{ background: 'rgba(6,6,6,0.92)', backdropFilter: 'blur(20px)' }}>
         <div className="w-full max-w-[90rem] mx-auto px-6 py-3 flex items-center justify-between">
-          <Link to="/">
+          <Link href="/">
             <img src="/images/logo.avif" alt="Squadtech Solution" className="h-10 w-auto object-contain" loading="eager" fetchPriority="high" />
           </Link>
           <div className="flex items-center gap-6">
@@ -106,7 +125,7 @@ export default function StartPage() {
 
               {/* Headline */}
               <h1 className="font-bold leading-[1.08] mb-6 text-white" style={{ fontSize: 'clamp(2.4rem, 4.5vw, 3.8rem)' }}>
-                Get a Risk-Free<br />
+                Get a Custom<br />
                 <span style={{ background: 'linear-gradient(135deg, #e73103, #f58e1e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                   Digital Strategy
                 </span><br />
@@ -314,7 +333,7 @@ export default function StartPage() {
 
               {/* Trust badges below form */}
               <div className="mt-5 flex flex-wrap items-center justify-center gap-4">
-                {['Zero-risk guarantee', 'No upfront payment', 'Reply within 24h'].map((badge) => (
+                {['See the work first', 'No upfront payment', 'Reply within 24h'].map((badge) => (
                   <span key={badge} className="flex items-center gap-1.5 text-white/40 text-xs">
                     <FiCheck className="w-3.5 h-3.5 text-green-400" />
                     {badge}
@@ -326,6 +345,7 @@ export default function StartPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

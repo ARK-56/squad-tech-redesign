@@ -1,3 +1,5 @@
+'use client'
+
 const clients = [
   { name: 'AAA DME', logo: '/images/clients/aaa-dme.png' },
   { name: 'Atlantic Medical Supply', logo: '/images/clients/atlantic-medical.png' },

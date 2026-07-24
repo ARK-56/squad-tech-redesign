@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, memo } from 'react'
 import { FiPlus, FiMinus, FiArrowRight, FiCalendar } from 'react-icons/fi'
 import { HiCheckCircle } from 'react-icons/hi2'
@@ -5,16 +7,16 @@ import useScrollReveal from '../hooks/useScrollReveal'
 
 const faqs = [
   {
-    q: 'How does the zero-risk website offer actually work?',
-    a: 'We design and build your website completely free of charge. Once we deliver the final product, you review it carefully. If you love the result and want to keep it, you pay our standard fee. If you\'re not satisfied, we walk away — no questions asked, no invoices sent.',
+    q: 'How does the free website offer actually work?',
+    a: 'We design a full homepage concept for your brand completely free of charge. Once we present it, you review it carefully. If you love the direction and want to move forward, we scope the full build and you pay our standard fee. If you\'re not satisfied, we walk away — no questions asked, no invoices sent.',
   },
   {
     q: 'What services does Squad Tech Solution offer?',
     a: 'We offer six core services: Social Media Marketing, SEO & PPC, Brand Identity, Media Production, Web Development, and Dedicated Remote Staff. Each service is backed by our performance guarantee.',
   },
   {
-    q: 'How does your marketing guarantee work?',
-    a: 'Our Social Media Marketing campaigns come with an absolute 30-day money-back guarantee. If we don\'t deliver measurable results within the first 30 days — increased reach, engagement, or leads — you get a full refund. No partial credits, no excuses.',
+    q: 'Am I locked into a long-term contract?',
+    a: 'No. Our marketing retainers run month-to-month — no long-term contracts and no cancellation fees. You can adjust, pause, or end your plan with 30 days\' notice, so you stay because the work performs, not because you\'re tied in.',
   },
   {
     q: 'How do you ensure quality when working remotely?',
@@ -50,8 +52,8 @@ export default function FAQ() {
         >
           <p className="eyebrow mb-4">FAQ</p>
           <h2 className="section-title">
-            Everything you need to know about our{' '}
-            <span className="brand-text">zero-risk model</span>
+            Everything you need to know about{' '}
+            <span className="brand-text">how we work</span>
           </h2>
         </div>
 

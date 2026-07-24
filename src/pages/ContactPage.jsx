@@ -1,17 +1,21 @@
+'use client'
+
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { FiSend, FiMapPin, FiPhone, FiMail, FiCalendar, FiArrowRight } from 'react-icons/fi'
 import PageHero from '../components/PageHero'
 import useScrollReveal from '../hooks/useScrollReveal'
+import Footer from '../components/Footer'
 
 const info = [
-  { icon: FiMapPin, label: 'Address', value: '276 Holten Ave, New York, United States', href: null },
+  { icon: FiMapPin, label: 'Address', value: '276 Holten Ave, Staten Island, NY 10309-4028, United States', href: null },
   { icon: FiPhone, label: 'Phone', value: '+1 (201) 820-6889', href: 'tel:+12018206889' },
   { icon: FiMail, label: 'Email', value: 'inquiry@squadtechsol.com', href: 'mailto:inquiry@squadtechsol.com' },
 ]
 
 const faqs = [
   {
-    q: 'How does the zero-risk model work?',
+    q: 'How does your no-upfront model work?',
     a: 'We build your project first — fully designed and developed — before any payment is required. If you love it, you pay. If not, you walk away at zero cost.',
   },
   {
@@ -34,7 +38,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Get in Touch"
         title="Let's Build Something"
-        titleAccent="Risk-Free"
+        titleAccent="Great"
         subtitle="Book a free discovery call, send a message, or drop into our calendar directly. There's no commitment and no pitch — just a real conversation about your growth."
         breadcrumbs={[{ label: 'Contact' }]}
       />
@@ -55,6 +59,7 @@ export default function ContactPage() {
           <FaqBlock />
         </div>
       </section>
+      <Footer />
     </div>
   )
 }
@@ -122,6 +127,7 @@ function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', service: '', message: '' })
   const [status, setStatus] = useState('idle')
   const [error, setError] = useState('')
+  const router = useRouter()
   const { ref, visible } = useScrollReveal()
 
   const handleSubmit = async (e) => {
@@ -137,8 +143,8 @@ function ContactForm() {
       const text = await res.text()
       const data = text ? JSON.parse(text) : {}
       if (!res.ok) throw new Error(data.error || 'Server error. Please try again.')
-      setStatus('success')
       setForm({ name: '', email: '', service: '', message: '' })
+      router.push('/thank-you?type=contact')
     } catch (err) {
       setError(err.message.includes('JSON') ? 'Could not reach the server. Please try again.' : err.message)
       setStatus('idle')

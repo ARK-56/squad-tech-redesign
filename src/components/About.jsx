@@ -1,4 +1,7 @@
+'use client'
+
 import { FiArrowRight } from 'react-icons/fi'
+import Image from 'next/image'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 export default function About() {
@@ -52,14 +55,15 @@ export default function About() {
 
         {/* About image */}
         <div
-          className="rounded-3xl overflow-hidden border border-white/10"
+          className="relative rounded-3xl overflow-hidden border border-white/10"
           style={{ aspectRatio: '21/8', background: 'rgba(255,255,255,0.04)' }}
         >
-          <img
+          <Image
             src="/images/portfolio-5.avif"
             alt="Squad Tech Solution team at work"
-            className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
-            loading="lazy"
+            fill
+            sizes="(max-width: 1248px) 100vw, 1248px"
+            className="object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
           />
         </div>
       </div>

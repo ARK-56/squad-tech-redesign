@@ -1,9 +1,15 @@
+'use client'
+
 import { useState, memo } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { FiArrowRight, FiExternalLink } from 'react-icons/fi'
 import { SiBehance } from 'react-icons/si'
 import { projects, categories } from '../data/portfolio'
+import { caseStudies } from '../data/caseStudies'
 import PageHero from '../components/PageHero'
 import useScrollReveal from '../hooks/useScrollReveal'
+import Footer from '../components/Footer'
 
 export default function PortfolioPage() {
   const [active, setActive] = useState('All')
@@ -29,11 +35,10 @@ export default function PortfolioPage() {
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${
-                  active === cat
-                    ? 'text-white border-transparent'
-                    : 'text-white/50 border-white/10 hover:text-white hover:border-white/20'
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${active === cat
+                  ? 'text-white border-transparent'
+                  : 'text-white/50 border-white/10 hover:text-white hover:border-white/20'
+                  }`}
                 style={active === cat ? { background: 'linear-gradient(135deg, #e73103, #f58e1e)', borderColor: 'transparent' } : { background: 'rgba(255,255,255,0.04)' }}
               >
                 {cat}
@@ -73,20 +78,20 @@ export default function PortfolioPage() {
           </div>
         </div>
       </section>
-
+      <Footer />
     </div>
   )
 }
 
 const ProjectCard = memo(function ProjectCard({ project, index }) {
   const { ref, visible } = useScrollReveal()
+  const hasStudy = !!caseStudies[project.slug]
 
   return (
     <article
       ref={ref}
-      className={`group rounded-2xl overflow-hidden border transition-all duration-700 ${
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}
+      className={`group rounded-2xl overflow-hidden border transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
       style={{
         transitionDelay: `${index * 60}ms`,
         background: 'rgba(255,255,255,0.04)',
@@ -106,15 +111,17 @@ const ProjectCard = memo(function ProjectCard({ project, index }) {
     >
       {/* Image */}
       <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>
-        <img
+        <Image
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          loading="lazy"
-          decoding="async"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
           onError={(e) => {
+            // Tint the card as a fallback, but never hard-hide the image:
+            // a cancelled/slow optimizer request would otherwise blank the
+            // card permanently even once the image is available.
             e.target.parentElement.style.background = 'rgba(231,49,3,0.06)'
-            e.target.style.display = 'none'
           }}
         />
         <div
@@ -163,20 +170,31 @@ const ProjectCard = memo(function ProjectCard({ project, index }) {
         </div>
         <p className="text-white/40 text-xs leading-relaxed mb-4">{project.description}</p>
 
-        {project.behanceUrl && (
-          <a
-            href={project.behanceUrl}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold border border-white/10 hover:border-white/25 text-white/50 hover:text-white transition-all duration-200"
-            style={{ background: 'rgba(255,255,255,0.04)' }}
-          >
-            <SiBehance className="w-3.5 h-3.5" />
-            View on Behance
-            <FiExternalLink className="w-3 h-3 opacity-60" />
-          </a>
-        )}
+        <div className="flex flex-wrap gap-2">
+          {hasStudy && (
+            <Link
+              href={`/portfolio/${project.slug}`}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-white/10 hover:border-white/25 text-white/50 hover:text-white transition-all duration-200"
+              style={{ background: 'rgba(255,255,255,0.04)' }}
+            >
+              Case Study <FiArrowRight className="w-3 h-3" />
+            </Link>
+          )}
+          {project.behanceUrl && (
+            <a
+              href={project.behanceUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold border border-white/10 hover:border-white/25 text-white/50 hover:text-white transition-all duration-200"
+              style={{ background: 'rgba(255,255,255,0.04)' }}
+            >
+              <FiExternalLink className="w-3.5 h-3.5" />
+              View Site
+              <FiExternalLink className="w-3 h-3 opacity-60" />
+            </a>
+          )}
+        </div>
       </div>
     </article>
   )

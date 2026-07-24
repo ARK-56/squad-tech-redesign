@@ -1,7 +1,12 @@
+'use client'
+
 import { memo } from 'react'
+import Image from 'next/image'
 import { FiZap, FiShield, FiTrendingUp, FiUsers, FiHeart } from 'react-icons/fi'
 import PageHero from '../components/PageHero'
 import useScrollReveal from '../hooks/useScrollReveal'
+import Footer from '../components/Footer'
+import { aboutStats } from '../data/stats'
 
 const values = [
   {
@@ -12,7 +17,7 @@ const values = [
   },
   {
     icon: FiShield,
-    title: 'Zero-Risk Everything',
+    title: 'We Prove It First',
     desc: 'We put our work up first. Every engagement begins with a guarantee, not a down payment.',
     color: '#f58e1e',
   },
@@ -36,21 +41,14 @@ const values = [
   },
 ]
 
-const stats = [
-  { value: '200+', label: 'Projects Delivered', color: '#e73103' },
-  { value: '67+', label: 'Global Clients', color: '#f58e1e' },
-  { value: '98%', label: 'Satisfaction Rate', color: '#e73103' },
-  { value: '10M+', label: 'Impressions Generated', color: '#f58e1e' },
-  { value: '7', label: 'Core Disciplines', color: '#e73103' },
-  { value: '$0', label: 'Required Upfront', color: '#f58e1e' },
-]
+const stats = aboutStats
 
 const team = [
-  { role: 'Growth & Strategy', count: '8 specialists' },
-  { role: 'Creative & Brand', count: '6 designers' },
-  { role: 'Development', count: '7 engineers' },
-  { role: 'Media Production', count: '4 producers' },
-  { role: 'SEO & Paid Media', count: '5 analysts' },
+  { role: 'Growth & Strategy', count: 'Funnels & GTM' },
+  { role: 'Creative & Brand', count: 'Design & Identity' },
+  { role: 'Development', count: 'Web & Platforms' },
+  { role: 'Media Production', count: 'Video & Photography' },
+  { role: 'SEO & Paid Media', count: 'Search & Analytics' },
 ]
 
 export default function AboutPage() {
@@ -60,9 +58,9 @@ export default function AboutPage() {
     <div>
       <PageHero
         eyebrow="About Us"
-        title="The Hungry Agency That"
+        title="The Digital Marketing Agency That"
         titleAccent="Out-Works Everyone"
-        subtitle="Squadtech Solution is a full-service digital agency on a mission to make world-class engineering and marketing accessible to ambitious brands — risk free."
+        subtitle="Squad Tech Solution is a full-service digital marketing agency specialising in social media marketing, SEO & PPC, custom web development, brand identity design, and media production — built on a simple promise: you see the work before you pay."
         breadcrumbs={[{ label: 'About' }]}
       />
 
@@ -80,19 +78,20 @@ export default function AboutPage() {
                 <span className="brand-text">Rapid, Authentic Growth</span>
               </h2>
               <p className="text-white/60 leading-relaxed mb-5">
-                Founded in New York, Squadtech Solution was built by a team that had been on both sides of the
-                agency relationship — and were frustrated by both. As clients, we\'d been overcharged and
-                under-served. As practitioners, we knew how much more was possible when a team actually cared.
+                Founded in New York, Squad Tech Solution was built by a team that had been on both sides of the
+                agency relationship — and were frustrated by both. As clients, we'd been overcharged and
+                under-served by digital marketing agencies that promised results and delivered reports. As
+                practitioners, we knew how much more was possible when a team actually cared.
               </p>
               <p className="text-white/60 leading-relaxed mb-5">
-                So we built the agency we always wished existed: one that puts the work up first, guarantees
-                results, and treats every client\'s growth as its own. We call it the zero-risk model, and it\'s
-                changed how we win, how we work, and how we retain.
+                So we built the full-service digital marketing agency we always wished existed: one that puts the
+                work up first, guarantees measurable results, and treats every client's growth as its own.
+                We call it our work-first model — and it's changed how we win, how we work, and how we retain.
               </p>
               <p className="text-white/60 leading-relaxed">
-                Today, we serve ambitious brands across the US, UK, Germany, and beyond — from pre-seed startups
-                to scaling SaaS companies — with a team of 30+ hungry specialists across growth, engineering,
-                design, and media.
+                Today, we serve ambitious brands across the US, UK, Germany, and beyond — from early-stage
+                startups to scaling companies — with a team of 30+ specialists across social media marketing,
+                SEO & paid search, web development, brand identity design, and media production.
               </p>
             </div>
 
@@ -127,6 +126,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <Footer />
 
     </div>
   )
@@ -140,7 +140,7 @@ const StatCard = memo(function StatCard({ stat, index }) {
       className={`card text-center py-7 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ transitionDelay: `${index * 60}ms` }}
     >
-      <p className="text-3xl font-bold mb-1" style={{ color: stat.color }}>{stat.value}</p>
+      <p className="text-3xl font-bold mb-1" style={{ color: index % 2 === 0 ? '#e73103' : '#f58e1e' }}>{stat.value}</p>
       <p className="text-white/40 text-xs leading-tight">{stat.label}</p>
     </div>
   )
@@ -188,15 +188,15 @@ const TeamImage = memo(function TeamImage() {
   return (
     <div
       ref={ref}
-      className={`rounded-2xl overflow-hidden border border-white/10 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      className={`relative rounded-2xl overflow-hidden border border-white/10 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       style={{ aspectRatio: '4/3', background: 'linear-gradient(135deg, rgba(231,49,3,0.08), rgba(245,142,30,0.04))' }}
     >
-      <img
+      <Image
         src="/images/portfolio-5.avif"
         alt="Squadtech team"
-        className="w-full h-full object-cover opacity-80"
-        loading="lazy"
-        decoding="async"
+        fill
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        className="object-cover opacity-80"
       />
     </div>
   )
@@ -242,3 +242,4 @@ const TeamInfo = memo(function TeamInfo({ team }) {
     </div>
   )
 })
+

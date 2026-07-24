@@ -1,0 +1,75 @@
+// ⚠️ DRAFT TESTIMONIALS — REVIEW BEFORE PUBLISHING
+// The quotes and contact names below are AI-drafted placeholders, matched to the
+// real client logos shown in the homepage Clients strip (see components/Clients.jsx).
+// Before these go live, replace each `quote` and `name` with a real, approved
+// statement + real contact from that client. Attributing invented quotes to real,
+// named companies without their sign-off is a legal/compliance risk (FTC 16 CFR 465).
+
+export const testimonials = [
+  {
+    quote: 'Their content strategy turned our social channels from a broadcast feed into a real acquisition engine. Within 90 days our DMs were full of qualified leads and our paid ROAS more than tripled.',
+    name: 'Julian Marsh',
+    role: 'Head of Growth',
+    company: 'Dexsora',
+    country: 'United States',
+    tag: 'Web3',
+    initials: 'JM',
+    color: '#e73103',
+    service: 'Social Media Marketing',
+  },
+  {
+    quote: 'We were scaling into new markets with a logo from 2017 and no guidelines. Squad Tech delivered a complete brand system in two weeks — the 60-page brand book alone changed how enterprise prospects perceive us.',
+    name: 'Nadia Farrell',
+    role: 'Marketing Director',
+    company: 'Squad International',
+    country: 'United States',
+    tag: 'Corporate',
+    initials: 'NF',
+    color: '#f58e1e',
+    service: 'Brand Identity',
+  },
+  {
+    quote: 'Our old website looked nothing like a company patients could trust with their equipment needs. The rebuild was fast, mobile-first, and our contact form submissions climbed steadily in the first quarter after launch.',
+    name: 'Robert Callahan',
+    role: 'Operations Director',
+    company: 'AAA DME',
+    country: 'United States',
+    tag: 'Healthcare',
+    initials: 'RC',
+    color: '#e73103',
+    service: 'Web Development',
+  },
+  {
+    quote: 'They rebuilt our local search presence from the ground up — Google Business Profile, reviews, the whole funnel. We now show up in the map pack for the searches that actually bring patients through the door.',
+    name: 'Dana Whitfield',
+    role: 'Practice Manager',
+    company: 'Baybridge Health Care',
+    country: 'United States',
+    tag: 'Healthcare',
+    initials: 'DW',
+    color: '#f58e1e',
+    service: 'SEO & PPC',
+  },
+  {
+    quote: 'As a billing platform, credibility is everything for us. Squad Tech gave us a brand and website that finally match the product — clean, fast, and built to convert demo requests instead of just describing features.',
+    name: 'Priya Nair',
+    role: 'Founder & CEO',
+    company: 'Smartbilling',
+    country: 'United States',
+    tag: 'SaaS',
+    initials: 'PN',
+    color: '#e73103',
+    service: 'Web Development',
+  },
+  {
+    quote: 'The video and photography they produced for us outperformed everything we had before. Professional visuals moved our engagement and ad click-through in a way stock content never did.',
+    name: 'Marcus Lowe',
+    role: 'Brand Manager',
+    company: 'Nexcare',
+    country: 'United States',
+    tag: 'Healthcare',
+    initials: 'ML',
+    color: '#f58e1e',
+    service: 'Media Production',
+  },
+]

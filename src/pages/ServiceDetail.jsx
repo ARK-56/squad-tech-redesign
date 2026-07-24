@@ -1,14 +1,18 @@
+'use client'
+
 import { memo } from 'react'
-import { useParams, Link, Navigate } from 'react-router-dom'
+import Link from 'next/link'
+import { useParams, redirect } from 'next/navigation'
 import { FiArrowRight, FiCheck, FiArrowUpRight } from 'react-icons/fi'
 import { services } from '../data/services'
 import useScrollReveal from '../hooks/useScrollReveal'
+import Footer from '../components/Footer'
 
 export default function ServiceDetail() {
   const { slug } = useParams()
   const service = services.find((s) => s.slug === slug)
 
-  if (!service) return <Navigate to="/services" replace />
+  if (!service) redirect('/services')
 
   const otherServices = services.filter((s) => s.slug !== slug).slice(0, 3)
   const rgb = service.accentColor === '#e73103' ? '231,49,3' : '245,142,30'
@@ -24,9 +28,9 @@ export default function ServiceDetail() {
         <div className="w-full max-w-[78rem] mx-auto px-4 relative z-10">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-1.5 text-xs text-white/30 mb-6 font-medium">
-            <Link to="/" className="hover:text-white/60 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-white/60 transition-colors">Home</Link>
             <span className="text-white/20">/</span>
-            <Link to="/services" className="hover:text-white/60 transition-colors">Services</Link>
+            <Link href="/services" className="hover:text-white/60 transition-colors">Services</Link>
             <span className="text-white/20">/</span>
             <span className="text-white/60">{service.title}</span>
           </nav>
@@ -57,8 +61,8 @@ export default function ServiceDetail() {
                 >
                   Get Started Free <FiArrowRight className="w-4 h-4" />
                 </a>
-                <Link to="/contact" className="btn-secondary px-6 py-3 text-sm">
-                  Ask a Question
+                <Link href={`/lp/${service.slug}`} className="btn-secondary px-6 py-3 text-sm">
+                  View Packages & Pricing
                 </Link>
               </div>
             </div>
@@ -103,7 +107,7 @@ export default function ServiceDetail() {
               <p className="eyebrow mb-3">Explore More</p>
               <h2 className="section-title">Other <span className="brand-text">Services</span></h2>
             </div>
-            <Link to="/services" className="btn-secondary px-5 py-2.5 text-sm shrink-0">
+            <Link href="/services" className="btn-secondary px-5 py-2.5 text-sm shrink-0">
               View All <FiArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -114,7 +118,7 @@ export default function ServiceDetail() {
           </div>
         </div>
       </section>
-
+      <Footer />
     </div>
   )
 }
@@ -186,7 +190,7 @@ const OtherServiceCard = memo(function OtherServiceCard({ service }) {
   const rgb = service.accentColor === '#e73103' ? '231,49,3' : '245,142,30'
   return (
     <Link
-      to={`/services/${service.slug}`}
+      href={`/services/${service.slug}`}
       className="group card block relative overflow-hidden transition-all duration-300 hover:border-white/20"
     >
       <div

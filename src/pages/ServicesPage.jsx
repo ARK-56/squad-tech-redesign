@@ -1,19 +1,22 @@
+'use client'
+
 import { memo } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { FiArrowUpRight, FiCheckCircle } from 'react-icons/fi'
 import { services } from '../data/services'
 import PageHero from '../components/PageHero'
 import useScrollReveal from '../hooks/useScrollReveal'
+import Footer from '../components/Footer'
 
 const whyUs = [
   {
-    title: 'Zero-Risk First Engagement',
-    desc: 'We build before you pay. Our zero-risk model means you see the work before signing anything.',
+    title: 'See The Work First',
+    desc: 'We build before you pay. You see the work before signing anything.',
     color: '#e73103',
   },
   {
-    title: '30-Day Money-Back Guarantee',
-    desc: 'On every retained service, if you\'re not satisfied in the first 30 days, you get a full refund.',
+    title: 'No Long-Term Contracts',
+    desc: 'Every retained service runs month-to-month — cancel anytime, no cancellation fees. You stay because it works.',
     color: '#f58e1e',
   },
   {
@@ -47,7 +50,7 @@ export default function ServicesPage() {
         eyebrow="Our Services"
         title="Everything You Need to"
         titleAccent="Scale Fast"
-        subtitle="Six battle-tested services — each with a zero-risk guarantee. Pick one, or let us build a combined growth strategy tailored to your goals."
+        subtitle="Six battle-tested services — see the work before you commit. Pick one, or let us build a combined growth strategy tailored to your goals."
         breadcrumbs={[{ label: 'Services' }]}
       />
 
@@ -82,7 +85,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
+      <Footer />
     </div>
   )
 }
@@ -94,9 +97,8 @@ const ServiceCard = memo(function ServiceCard({ service, index }) {
   return (
     <div
       ref={ref}
-      className={`group card relative overflow-hidden flex flex-col transition-all duration-700 ${
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}
+      className={`group card relative overflow-hidden flex flex-col transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
       style={{ transitionDelay: `${index * 60}ms` }}
     >
       <div
@@ -128,7 +130,7 @@ const ServiceCard = memo(function ServiceCard({ service, index }) {
       </div>
 
       <Link
-        to={`/services/${service.slug}`}
+        href={`/services/${service.slug}`}
         className="inline-flex items-center gap-2 text-sm font-semibold group/link"
         style={{ color: service.accentColor }}
       >

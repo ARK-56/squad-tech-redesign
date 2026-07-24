@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { FiChevronRight } from 'react-icons/fi'
 
 export default function PageHero({ eyebrow, title, titleAccent, subtitle, breadcrumbs = [] }) {
@@ -14,12 +16,12 @@ export default function PageHero({ eyebrow, title, titleAccent, subtitle, breadc
         {/* Breadcrumb */}
         {breadcrumbs.length > 0 && (
           <nav className="flex items-center gap-1.5 text-xs text-white/30 mb-6 font-medium">
-            <Link to="/" className="hover:text-white/60 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-white/60 transition-colors">Home</Link>
             {breadcrumbs.map((crumb, i) => (
               <span key={i} className="flex items-center gap-1.5">
                 <FiChevronRight className="w-3 h-3" />
                 {crumb.href
-                  ? <Link to={crumb.href} className="hover:text-white/60 transition-colors">{crumb.label}</Link>
+                  ? <Link href={crumb.href} className="hover:text-white/60 transition-colors">{crumb.label}</Link>
                   : <span className="text-white/60">{crumb.label}</span>
                 }
               </span>

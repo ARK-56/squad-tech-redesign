@@ -250,12 +250,12 @@
       "behanceUrl": "https://www.behance.net/gallery/246970917/Dexsora-Brand-Identity"
     },
     {
-      "slug": "roow-marketing-web",
-      "title": "Roow Marketing LLC – Website Design",
-      "client": "Roow Marketing LLC",
+      "slug": "medora-marketing-web",
+      "title": "Medora Marketing LLC – Website Design",
+      "client": "Medora Marketing LLC",
       "category": "Web",
       "description": "A dark, conversion-focused website for a healthcare marketing agency — lead capture forms, data-driven messaging, and a seamless digital presence built to attract patients.",
-      "image": "/images/portfolio-roow-marketing.png",
+      "image": "/images/portfolio-medora-marketing.png",
       "tags": [
         "Web Design",
         "UI/UX",
@@ -267,7 +267,7 @@
         "2026 delivery"
       ],
       "accentColor": "#f58e1e",
-      "behanceUrl": null
+      "behanceUrl": "https://medora-marketing.vercel.app/"
     },
     {
       "slug": "atlas-automotive-web",
@@ -287,7 +287,7 @@
         "2026 delivery"
       ],
       "accentColor": "#e73103",
-      "behanceUrl": null
+      "behanceUrl": "https://atlas-automotive.vercel.app/"
     },
     {
       "slug": "auto-trader-web",
@@ -307,7 +307,7 @@
         "2026 delivery"
       ],
       "accentColor": "#f58e1e",
-      "behanceUrl": null
+      "behanceUrl": "https://auto-trader-xi.vercel.app/"
     },
     {
       "slug": "saas-diplomacy-web",
@@ -327,7 +327,7 @@
         "2026 delivery"
       ],
       "accentColor": "#e73103",
-      "behanceUrl": null
+      "behanceUrl": "https://saas-diplomacy.vercel.app/"
     },
     {
       "slug": "sg-medicals-web",
@@ -347,7 +347,7 @@
         "2026 delivery"
       ],
       "accentColor": "#f58e1e",
-      "behanceUrl": null
+      "behanceUrl": "https://sg-medical.vercel.app/"
     },
     {
       "slug": "unity-health-web",
@@ -367,7 +367,7 @@
         "2026 delivery"
       ],
       "accentColor": "#e73103",
-      "behanceUrl": null
+      "behanceUrl": "https://unityhealthsource.com/"
     },
     {
       "slug": "squad-tech-web-design",
@@ -390,26 +390,6 @@
       "behanceUrl": null
     },
     {
-      "slug": "future-marketing-website",
-      "title": "Future Marketing – Website Design",
-      "client": "Future Marketing",
-      "category": "Web",
-      "description": "A lead-generation powerhouse built for a healthcare marketing agency in Dubai, featuring an integrated form flow and data-driven conversion strategy.",
-      "image": "/images/portfolio-future-marketing.png",
-      "tags": [
-        "Web Design",
-        "UI/UX",
-        "Healthcare"
-      ],
-      "results": [
-        "Conversion-optimised",
-        "Lead gen forms",
-        "2026 delivery"
-      ],
-      "accentColor": "#e73103",
-      "behanceUrl": null
-    },
-    {
       "slug": "aaa-dme-web-ecommerce",
       "title": "AAA DME INC – Web & E-Commerce Design",
       "client": "AAA DME INC",
@@ -427,7 +407,7 @@
         "2026 delivery"
       ],
       "accentColor": "#f58e1e",
-      "behanceUrl": null
+      "behanceUrl": "https://www.aaadmeinc.com/"
     },
     {
       "slug": "shinkyowa-admin-panel",
@@ -447,7 +427,7 @@
         "2026 delivery"
       ],
       "accentColor": "#e73103",
-      "behanceUrl": null
+      "behanceUrl": "null"
     },
     {
       "slug": "altivox-web-ecommerce",
@@ -467,7 +447,7 @@
         "2026 delivery"
       ],
       "accentColor": "#f58e1e",
-      "behanceUrl": null
+      "behanceUrl": "https://altivoxhealthsolution.com/"
     }
   ],
   "bin": [
